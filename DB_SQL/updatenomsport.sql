@@ -1,0 +1,1 @@
+UPDATE t_Sports SET Nom_Sport ='quidditch'  WHERE PK_Sport = 1 
