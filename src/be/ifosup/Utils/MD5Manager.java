@@ -4,7 +4,7 @@ import javax.xml.bind.DatatypeConverter;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class Md5Manager {
+public class MD5Manager {
 
     public String hash(String pass){
 
