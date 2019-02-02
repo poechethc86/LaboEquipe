@@ -1,0 +1,1 @@
+Delete FROM `t_clubs` WHERE `FK_Sport`= 1 

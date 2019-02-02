@@ -1,0 +1,1 @@
+Delete FROM `t_sports` WHERE `PK_Sport`= 1 
