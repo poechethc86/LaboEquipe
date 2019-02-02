@@ -1,0 +1,1 @@
+INSERT INTO t_clubs(Nom_Club,FK_Sport) VALUES ('clubfoot2', 1)

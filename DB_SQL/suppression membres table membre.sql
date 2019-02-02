@@ -1,0 +1,1 @@
+Delete FROM `t_membres` WHERE `PK_Membres`= 1 

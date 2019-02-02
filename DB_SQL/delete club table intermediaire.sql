@@ -1,0 +1,1 @@
+DELETE FROM ti_membres_clubs WHERE ti_membres_clubs.FK_Clubs=2;
