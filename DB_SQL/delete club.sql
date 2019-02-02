@@ -1,0 +1,1 @@
+DELETE FROM t_clubs WHERE t_clubs.PK_Club=2 

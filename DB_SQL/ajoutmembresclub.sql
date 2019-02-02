@@ -1,0 +1,1 @@
+INSERT INTO ti_membres_club VALUES (2, 2)
