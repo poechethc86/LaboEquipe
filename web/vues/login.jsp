@@ -5,15 +5,11 @@
   Time: 11:22
   To change this template use File | Settings | File Templates.
 --%>
-%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
+<%@page contentType="text/html;charset=UTF-8" language="java" %>
+
 <%@include file="../templates/header.jsp"%>
 
-<div class="container contenu">
+<div class="container contenu" style="margin-top:150px">
     <div class="row justify-content-center">
         <div class="col-4">
             <h3 class="p-3 bg-primary text-white text-center">Login Todo App</h3>
@@ -34,5 +30,4 @@
 
 </div>
 <%@include file="../templates/footer.jsp"%>
-</body>
-</html>
+

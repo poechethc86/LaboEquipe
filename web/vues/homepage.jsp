@@ -6,44 +6,105 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Title</title>
+    <title>Page Test</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.2.1/cerulean/bootstrap.min.css" rel="stylesheet" integrity="sha384-62+JPIF7fVYAPS4itRiqKa7VU321chxfKZRtkSY0tGoTwcUItAFEH/HGTpvDH6e6" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+
+    <style>
+
+        th {
+            background-color: #4CB1EA;
+        }
+
+        table {
+            text-align:center;
+        }
+
+        h1 {
+            text-align:center
+        }
+
+
+    </style>
 </head>
 <body>
 <%@include file="../templates/header.jsp"%>
-<div class="row"style="margin-top:150px">
+<%@include file="../templates/navigation.jsp"%>
+<div class="row" style="margin-top:150px">
     <div class="col-sm-2"></div>
-    <div class="col-sm-8">
-        <h1>Clubs</h1>
-        <table class="table table-striped" style="text-align:center">
-            <thead>
-            <tr>
-                <th>Clubs</th>
-                <th>Sports</th>
-                <th>Membres</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>test</td>
-                <td>test</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>test</td>
-                <td>test</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>test</td>
-                <td>test</td>
-                <td>0</td>
-            </tr>
-            </tbody>
-        </table>
+        <div class="col-sm-8">
+            <h1>Clubs</h1>
+            <table class="table table-striped" style="text-align:center">
+                <thead>
+                <tr>
+                    <th>Clubs</th>
+                    <th>Sports</th>
+                    <th>Membres</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>test</td>
+                    <td>test</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>test</td>
+                    <td>test</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>test</td>
+                    <td>test</td>
+                    <td>0</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    <div class="col-sm-2"></div>
+</div>
+<form action="/action_page.php">
+    <div class="row" style="margin-top:50px">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-4">
+
+                <div class="form-inline">
+                    <div class="form-group">
+                        <label for="clubName">Nom du club:  </label>
+                        <input type="text" class="form-control" id="clubName">
+                    </div>
+                </div>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="form-group">
+                <select class="form-control" id="sel1">
+                    <option>sport1</option>
+                    <option>sport2</option>
+                    <option>sport3</option>
+                    <option>sport4</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-sm-2"></div>
     </div>
-    <div class="col-sm-2"></div>
+</form>
+<div class="row">
+    <div class="col-sm-5"></div>
+    <div class="col-sm-2">
+        <button type="submit" class="btn btn-primary">Ajouter le club</button>
+    </div>
+    <div class="col-sm-5"></div>
+</div>
 </div>
 
 <div class="row"style="margin-top:150px">
@@ -75,8 +136,28 @@
     </div>
     <div class="col-sm-2"></div>
 </div>
+<form action="/action_page.php">
+<div class="row"style="margin-top:50px">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-4">
 
-<div class="row"style="margin-top:150px">
+            <div class="form-inline">
+                <div class="form-group">
+                    <label for="sportName">Nom du sport:  </label>
+                    <input type="text" class="form-control" id="sportName">
+                </div>
+            </div>
+    </div>
+
+    <div class="col-sm-4">
+        <button type="submit" class="btn btn-primary">Ajouter le sport</button>
+    </div>
+
+    <div class="col-sm-2"></div>
+
+</div>
+</form>
+<div class="row" style="margin-top:150px">
     <div class="col-sm-2"></div>
     <div class="col-sm-8">
         <h1>Membres</h1>
@@ -105,6 +186,39 @@
     </div>
     <div class="col-sm-2"></div>
 </div>
+<form action="/action_page.php">
+    <div class="row"style="margin-top:50px">
+
+        <div class="col-sm-2"></div>
+        <div class="col-sm-3">
+
+                <div class="form-inline">
+                    <div class="form-group">
+                        <label for="membName">Nom:  </label>
+                        <input type="text" class="form-control" id="membName">
+                    </div>
+                </div>
+        </div>
+
+        <div class="col-sm-3">
+            <div class="form-inline">
+                <div class="form-group">
+                    <label for="membFirstName">Prenom:  </label>
+                    <input type="text" class="form-control" id="membFirstName">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-sm-2"><button type="submit" class="btn btn-primary">Ajouter nouveau membre</button></div>
+        <div class="col-sm-2"></div>
+
+
+    </div>
+</form>
+</br>
 <%@include file="../templates/footer.jsp"%>
 </body>
 </html>
+
+
