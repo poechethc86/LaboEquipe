@@ -4,6 +4,7 @@ import be.ifosup.Utils.MD5Manager;
 import be.ifosup.entities.Membre;
 
 import java.sql.SQLException;
+import java.util.*;
 
 public class MemberManager extends DBManager {
 
@@ -64,24 +65,14 @@ public class MemberManager extends DBManager {
         boolean noError = true;
         try {
             ConnectDB();
-            preparedStatement = connection.prepareStatement("SELECT t_membres.PK_Membres FROM t_membres WHERE (((t_membres.Prenom_Membres)=?) AND ((t_membres.Nom_Membres)=?))");
-            preparedStatement.setString(1,member.getPrenom());
-            preparedStatement.setString(2,member.getNom());
-
-
-            result = preparedStatement.executeQuery();
-            result.next();
-            int pk = result.getInt(1);
 
             preparedStatement = connection.prepareStatement("DELETE FROM ti_membres_clubs WHERE ti_membres_clubs.FK_Membres=?");
-            preparedStatement.setInt(1,pk);
+            preparedStatement.setInt(1,member.getPk_membre());
             result = preparedStatement.executeQuery();
 
             preparedStatement = connection.prepareStatement("Delete FROM `t_membres` WHERE `PK_Membres`= ?");
-            preparedStatement.setInt(1,pk);
+            preparedStatement.setInt(1,member.getPk_membre());
             result = preparedStatement.executeQuery();
-
-
 
 
         } catch (SQLException e) {
@@ -93,6 +84,48 @@ public class MemberManager extends DBManager {
         return noError;
     }
 
+    public boolean UpdateMember(Membre member){
+
+        boolean noError = true;
+        try {
+            ConnectDB();
+            preparedStatement = connection.prepareStatement("UPDATE t_membres SET Nom_Membres =? Prenom_Membres = ? WHERE PK_Membres = ?");
+            preparedStatement.setString(1,member.getNom());
+            preparedStatement.setString(2,member.getPrenom());
+            preparedStatement.setInt(3,member.getPk_membre());
+            result = preparedStatement.executeQuery();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            noError = false;
+        } finally {
+            CloseDB();
+        }
+        return noError;
+
+
+    }
+
+    public List<Membre> DisplayMembers(){
+        ArrayList<Membre> listemembre = new ArrayList<Membre>();
+        try {
+            ConnectDB();
+            preparedStatement = connection.prepareStatement("SELECT t_membres.Nom_Membres, t_membres.Prenom_Membres , t_membres.PK_Membres FROM t_membres;");
+            result = preparedStatement.executeQuery();
+
+            while (result.next()){
+                Membre membre = new Membre(result.getString(1),result.getString(2),result.getInt(3));
+
+                            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+                  } finally {
+            CloseDB();
+        }
+
+        return listemembre;
+    }
 
 
 
