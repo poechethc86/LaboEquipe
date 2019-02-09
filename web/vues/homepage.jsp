@@ -52,19 +52,9 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${clubs}" var="todo">
+                <c:forEach items="${clubs}" var="club">
                     <tr>
-                        <td>${club.nom}</td>
-                    </tr>
-                </c:forEach>
-                <c:forEach items="${sports}" var="todo">
-                    <tr>
-                        <td>${sport.nomSport}</td>
-                    </tr>
-                </c:forEach>
-                <c:forEach items="${membres}" var="todo">
-                    <tr>
-                        <td>${membre.nom}</td>
+                        <td>${club.nom}</td> <td>${club.sport}</td><td>0</td>
                     </tr>
                 </c:forEach>
                 </tbody>
@@ -88,7 +78,7 @@
         <div class="col-sm-4">
             <div class="form-group">
                 <select class="form-control" id="sel1">
-                    <c:forEach items="${clubs}" var="todo">
+                    <c:forEach items="${clubs}" var="club">
                             <option>${sport.nomSport}</option>
                     </c:forEach>
                 </select>
@@ -118,12 +108,12 @@
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${clubs}" var="todo">
+            <c:forEach items="${clubs}" var="club">
                 <tr>
                     <td>${club.nom}</td>
                 </tr>
             </c:forEach>
-            <c:forEach items="${sports}" var="todo">
+            <c:forEach items="${sports}" var="sport">
                 <tr>
                     <td>${sport.nomSport}</td>
                 </tr>
@@ -166,7 +156,7 @@
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${membres}" var="todo">
+            <c:forEach items="${membres}" var="membre">
                 <tr>
                     <td>${membre.nom}</td>
                     <td>${membre.prenom}</td>
