@@ -52,27 +52,27 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>test</td>
-                    <td>test</td>
-                    <td>0</td>
-                </tr>
-                <tr>
-                    <td>test</td>
-                    <td>test</td>
-                    <td>0</td>
-                </tr>
-                <tr>
-                    <td>test</td>
-                    <td>test</td>
-                    <td>0</td>
-                </tr>
+                <c:forEach items="${clubs}" var="todo">
+                    <tr>
+                        <td>${club.nom}</td>
+                    </tr>
+                </c:forEach>
+                <c:forEach items="${sports}" var="todo">
+                    <tr>
+                        <td>${sport.nomSport}</td>
+                    </tr>
+                </c:forEach>
+                <c:forEach items="${membres}" var="todo">
+                    <tr>
+                        <td>${membre.nom}</td>
+                    </tr>
+                </c:forEach>
                 </tbody>
             </table>
         </div>
     <div class="col-sm-2"></div>
 </div>
-<form action="/action_page.php">
+<form action="add-club" method="post">
     <div class="row" style="margin-top:50px">
         <div class="col-sm-2"></div>
         <div class="col-sm-4">
@@ -88,10 +88,9 @@
         <div class="col-sm-4">
             <div class="form-group">
                 <select class="form-control" id="sel1">
-                    <option>sport1</option>
-                    <option>sport2</option>
-                    <option>sport3</option>
-                    <option>sport4</option>
+                    <c:forEach items="${clubs}" var="todo">
+                            <option>${sport.nomSport}</option>
+                    </c:forEach>
                 </select>
             </div>
         </div>
@@ -119,24 +118,22 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>test</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>test</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>test</td>
-                <td>0</td>
-            </tr>
+            <c:forEach items="${clubs}" var="todo">
+                <tr>
+                    <td>${club.nom}</td>
+                </tr>
+            </c:forEach>
+            <c:forEach items="${sports}" var="todo">
+                <tr>
+                    <td>${sport.nomSport}</td>
+                </tr>
+            </c:forEach>
             </tbody>
         </table>
     </div>
     <div class="col-sm-2"></div>
 </div>
-<form action="/action_page.php">
+<form action="add-sport" method="post">
 <div class="row"style="margin-top:50px">
     <div class="col-sm-2"></div>
     <div class="col-sm-4">
@@ -169,24 +166,18 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>test</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>test</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>test</td>
-                <td>0</td>
-            </tr>
+            <c:forEach items="${membres}" var="todo">
+                <tr>
+                    <td>${membre.nom}</td>
+                    <td>${membre.prenom}</td>
+                </tr>
+            </c:forEach>
             </tbody>
         </table>
     </div>
     <div class="col-sm-2"></div>
 </div>
-<form action="/action_page.php">
+<form action="add-membre" method="post">
     <div class="row"style="margin-top:50px">
 
         <div class="col-sm-2"></div>
