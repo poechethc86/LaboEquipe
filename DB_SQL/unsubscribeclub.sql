@@ -1,1 +1,1 @@
-Delete FROM `ti_membres_clubs` WHERE `FK_Membres`= 1 
+Delete FROM `ti_membres_clubs` WHERE `FK_Clubs`= 1 

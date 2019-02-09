@@ -1,9 +1,11 @@
 package be.ifosup.database;
 
+import be.ifosup.Utils.MD5Manager;
+
 import java.sql.*;
 
 public class DBManager {
-    protected String url = "jdbc:mysql://localhost:3306/sport?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
+    protected String url = "jdbc:mysql://localhost:3306/db_projet_equipe?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
     protected String dbUser = "root";
     protected String dbPass = "";
 
@@ -13,7 +15,7 @@ public class DBManager {
 
     private boolean driverloaded = false;
 
-    protected boolean LoadDriver () {
+    private boolean LoadDriver () {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             System.out.println("Driver OK");

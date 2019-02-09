@@ -6,6 +6,17 @@ import java.security.NoSuchAlgorithmException;
 
 public class MD5Manager {
 
+    private MD5Manager() {}
+
+    private static MD5Manager instance = null;
+
+    public static MD5Manager Instance () {
+        if (instance == null) {
+            instance = new MD5Manager();
+        }
+        return instance;
+    }
+
     public String hash(String pass){
 
 
@@ -23,6 +34,6 @@ public class MD5Manager {
 
         //mdme = myHash;
 
-    return myHash;}
+    return myHash.toLowerCase();}
 
 }
