@@ -6,13 +6,16 @@ public class Membre {
     private String prenom;
     private String password;
     private String user;
+    private int pk_membre;
 
     // constructeur
-    public Membre(String nom, String prenom, String password, String user) {
+    public Membre(String nom, String prenom, String password, String user, int pk_membre) {
         this.nom = nom;
         this.prenom = prenom;
         this.password = password;
         this.user = user;
+        this.pk_membre = pk_membre;
+
     }
 
     // Getters & Setters
@@ -39,5 +42,13 @@ public class Membre {
     }
     public void setUser(String user) {
         this.user = user;
+    }
+
+    public int getPk_membre() {
+        return pk_membre;
+    }
+
+    public void setPk_membre(int pk_membre) {
+        this.pk_membre = pk_membre;
     }
 }
