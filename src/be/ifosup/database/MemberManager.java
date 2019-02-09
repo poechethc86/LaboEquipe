@@ -1,6 +1,7 @@
 package be.ifosup.database;
 
 import be.ifosup.Utils.MD5Manager;
+import be.ifosup.entities.Membre;
 
 import java.sql.SQLException;
 
@@ -36,4 +37,64 @@ public class MemberManager extends DBManager {
         }
         return passwordOK;
     }
+
+    public boolean AddMember(Membre member){
+        boolean noError = true;
+        try {
+            ConnectDB();
+            preparedStatement = connection.prepareStatement("INSERT INTO `t_membres`( `Nom_Membres`,`Prenom_Membres`, `Pass_Membres`,`User_Membres`) VALUES (?,? ,?,?)");
+            preparedStatement.setString(1,member.getNom());
+            preparedStatement.setString(2,member.getPrenom());
+            preparedStatement.setString(3,member.getPassword());
+            preparedStatement.setString(4,member.getUser());
+
+            result = preparedStatement.executeQuery();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            noError = false;
+        } finally {
+            CloseDB();
+        }
+        return noError;
+    }
+
+
+    public boolean RemoveMember(Membre member){
+        boolean noError = true;
+        try {
+            ConnectDB();
+            preparedStatement = connection.prepareStatement("SELECT t_membres.PK_Membres FROM t_membres WHERE (((t_membres.Prenom_Membres)=?) AND ((t_membres.Nom_Membres)=?))");
+            preparedStatement.setString(1,member.getPrenom());
+            preparedStatement.setString(2,member.getNom());
+
+
+            result = preparedStatement.executeQuery();
+            result.next();
+            int pk = result.getInt(1);
+
+            preparedStatement = connection.prepareStatement("DELETE FROM ti_membres_clubs WHERE ti_membres_clubs.FK_Membres=?");
+            preparedStatement.setInt(1,pk);
+            result = preparedStatement.executeQuery();
+
+            preparedStatement = connection.prepareStatement("Delete FROM `t_membres` WHERE `PK_Membres`= ?");
+            preparedStatement.setInt(1,pk);
+            result = preparedStatement.executeQuery();
+
+
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            noError = false;
+        } finally {
+            CloseDB();
+        }
+        return noError;
+    }
+
+
+
+
+
 }
