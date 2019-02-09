@@ -55,4 +55,13 @@ public class Membre {
     public void setPk_membre(int pk_membre) {
         this.pk_membre = pk_membre;
     }
+
+
+    @Override
+    public String toString() {
+        return "membre{" +
+                "nom='" + nom + '\'' +
+                ", prenom='" + prenom + '\'' +
+                '}';
+    }
 }
