@@ -1,1 +1,1 @@
-INSERT INTO `t_membres`( `Nom_Membres`,`Prenom_Membres`, `Pass_Membres`,`user_membres`) VALUES ("testnom","testprenom" ,"testpass","testusermembres" );
+INSERT INTO `t_membres`( `Nom_Membres`,`Prenom_Membres`, `Pass_Membres`,`User_Membres`) VALUES ("testnom","testprenom" ,"testpass","testusermembres" );
