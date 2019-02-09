@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  sam. 09 fév. 2019 à 09:22
+-- Généré le :  sam. 09 fév. 2019 à 09:37
 -- Version du serveur :  5.7.23
 -- Version de PHP :  7.2.10
 
@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `t_membres` (
   `Nom_Membres` varchar(32) COLLATE utf8_bin NOT NULL,
   `Prenom_Membres` varchar(32) COLLATE utf8_bin NOT NULL,
   `Pass_Membres` varchar(32) COLLATE utf8_bin NOT NULL,
-  `user_membres` varchar(32) COLLATE utf8_bin NOT NULL,
+  `User_Membres` varchar(32) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`PK_Membres`)
 ) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `t_membres` (
 -- Déchargement des données de la table `t_membres`
 --
 
-INSERT INTO `t_membres` (`PK_Membres`, `Nom_Membres`, `Prenom_Membres`, `Pass_Membres`, `user_membres`) VALUES
+INSERT INTO `t_membres` (`PK_Membres`, `Nom_Membres`, `Prenom_Membres`, `Pass_Membres`, `User_Membres`) VALUES
 (2, 'Roch', 'Sophie', '098f6bcd4621d373cade4e832627b4f6', 'sroch'),
 (3, 'police', 'Justin', '098f6bcd4621d373cade4e832627b4f6', 'jpolice'),
 (7, 'testnom', 'testprenom', '098f6bcd4621d373cade4e832627b4f6', 'ttestnom');
