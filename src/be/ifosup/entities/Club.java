@@ -12,6 +12,10 @@ public class Club {
         this.nom = nom;
         this.sport = sport;
     }
+    public Club(String nom) {
+        this(nom,"");
+    }
+    
 
     //getter setter:
 

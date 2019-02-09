@@ -17,6 +17,10 @@ public class Membre {
         this.pk_membre = pk_membre;
 
     }
+    public Membre(String nom, String prenom){
+        this(nom,prenom,"", "",-1);
+    }
+
 
     // Getters & Setters
     public void setNom(String nom) {
