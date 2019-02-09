@@ -1,7 +1,9 @@
 package be.ifosup.database;
 
 import be.ifosup.Utils.MD5Manager;
+import be.ifosup.entities.Club;
 import be.ifosup.entities.Membre;
+import be.ifosup.entities.Sport;
 
 import java.sql.SQLException;
 import java.util.*;
@@ -114,9 +116,10 @@ public class MemberManager extends DBManager {
             result = preparedStatement.executeQuery();
 
             while (result.next()){
-                Membre membre = new Membre(result.getString(1),result.getString(2),result.getInt(3));
-
-                            }
+                Membre membre = new Membre(result.getString(1),result.getString(2));
+                membre.setPk_membre(result.getInt(3));
+                listemembre.add(membre);
+                                 }
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -127,7 +130,112 @@ public class MemberManager extends DBManager {
         return listemembre;
     }
 
+    public List<Membre> DisplayMembers(Club club){
+        ArrayList<Membre> listemembre = new ArrayList<Membre>();
+
+        try {
+        ConnectDB();
+        preparedStatement = connection.prepareStatement("SELECT t_membres.Nom_Membres, t_membres.Prenom_Membres FROM t_membres INNER JOIN (t_clubs INNER JOIN ti_membres_clubs ON t_clubs.PK_Club = ti_membres_clubs.FK_Clubs) ON t_membres.PK_Membres = ti_membres_clubs.FK_Membres WHERE t_clubs.PK_Club=?;");
+
+        preparedStatement.setInt(1,club.getPk_club());
+        result = preparedStatement.executeQuery();
+
+        while (result.next()){
+            Membre membre = new Membre(result.getString(1),result.getString(2));
+            membre.setPk_membre(result.getInt(3));
+            listemembre.add(membre);
+        }
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    } finally {
+        CloseDB();
+    }
+
+        return listemembre;
+
+
+    }
+
+    public List<Membre> DisplayMembers (Sport sport){
+
+        ArrayList<Membre> listemembre = new ArrayList<Membre>();
+
+        try {
+            ConnectDB();
+            preparedStatement = connection.prepareStatement("SELECT t_membres.Nom_Membres, t_membres.Prenom_Membres FROM t_membres INNER JOIN ((t_sports INNER JOIN t_clubs ON t_sports.PK_Sport = t_clubs.FK_Sport)                    INNER JOIN ti_membres_clubs ON t_clubs.PK_Club = ti_membres_clubs.FK_Clubs) ON t_membres.PK_Membres = ti_membres_clubs.FK_Membres HERE (((t_sports.PK_Sport)=?))");
+
+            preparedStatement.setInt(1,sport.getPk_sport());
+            result = preparedStatement.executeQuery();
+
+            while (result.next()){
+                Membre membre = new Membre(result.getString(1),result.getString(2));
+                membre.setPk_membre(result.getInt(3));
+                listemembre.add(membre);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            CloseDB();
+        }
+
+        return listemembre;
+
+
+    }
+
+    public boolean SubscribeClub (Membre member, Club club){
+
+        boolean noError = true;
+        try {
+            ConnectDB();
+
+            preparedStatement = connection.prepareStatement("INSERT INTO ti_membres_club VALUES (?, ?)");
+            preparedStatement.setInt(1,club.getPk_club());
+            preparedStatement.setInt(2,member.getPk_membre());
+            result = preparedStatement.executeQuery();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            noError = false;
+        } finally {
+            CloseDB();
+        }
+        return noError;
+    }
+
+    public boolean UnsubscribeClub (Membre member, Club club){
+        boolean noError = true;
+        try {
+            ConnectDB();
+
+            preparedStatement = connection.prepareStatement("Delete FROM `ti_membres_clubs` WHERE `FK_Clubs`= ? AND `FK_Membres`= ?");
+            preparedStatement.setInt(1,club.getPk_club());
+            preparedStatement.setInt(2,member.getPk_membre());
+            result = preparedStatement.executeQuery();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            noError = false;
+        } finally {
+            CloseDB();
+        }
+        return noError;
+    }
+
+
+
 
 
 
 }
+
+
+
+
+
+
+
+
+
