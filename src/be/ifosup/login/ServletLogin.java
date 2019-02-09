@@ -1,5 +1,7 @@
 package be.ifosup.login;
 
+import be.ifosup.database.MemberManager;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,7 +18,7 @@ public class ServletLogin extends HttpServlet {
         String pass = request.getParameter("pass");
 
         // test avec la méthode de validation
-        if(nom.equals("test") && pass.equals("pass")) {
+        if(MemberManager.Instance().CheckPassword(nom,pass)) {
             request.getSession().setAttribute("nom", nom);
 
             response.sendRedirect("homepage");

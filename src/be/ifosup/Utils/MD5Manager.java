@@ -34,6 +34,6 @@ public class MD5Manager {
 
         //mdme = myHash;
 
-    return myHash;}
+    return myHash.toLowerCase();}
 
 }
