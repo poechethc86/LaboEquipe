@@ -5,12 +5,14 @@ public class Membre {
     private String nom;
     private String prenom;
     private String password;
+    private String user;
 
     // constructeur
-    public Membre(String nom, String prenom, String password) {
+    public Membre(String nom, String prenom, String password, String user) {
         this.nom = nom;
         this.prenom = prenom;
         this.password = password;
+        this.user = user;
     }
 
     // Getters & Setters
@@ -31,5 +33,11 @@ public class Membre {
     }
     public void setPassword(String password) {
         this.password = password;
+    }
+    public String getUser() {
+        return user;
+    }
+    public void setUser(String user) {
+        this.user = user;
     }
 }
