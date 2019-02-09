@@ -73,9 +73,15 @@ public class MemberManager extends DBManager {
             result.next();
             int pk = result.getInt(1);
 
-            preparedStatement = connection.prepareStatement("DELETE FROM ti_membres_clubs WHERE ti_membres_clubs.FK_Clubs=2;");
-            preparedStatement.setString(1,member.getPrenom());
-            preparedStatement.setString(2,member.getNom());
+            preparedStatement = connection.prepareStatement("DELETE FROM ti_membres_clubs WHERE ti_membres_clubs.FK_Membres=?");
+            preparedStatement.setInt(1,pk);
+            result = preparedStatement.executeQuery();
+
+            preparedStatement = connection.prepareStatement("Delete FROM `t_membres` WHERE `PK_Membres`= ?");
+            preparedStatement.setInt(1,pk);
+            result = preparedStatement.executeQuery();
+
+
 
 
         } catch (SQLException e) {
@@ -88,7 +94,7 @@ public class MemberManager extends DBManager {
     }
 
 
-    ;
+
 
 
 }
