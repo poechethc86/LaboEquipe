@@ -17,18 +17,22 @@ public class ServletLogin extends HttpServlet {
         String nom = request.getParameter("nom");
         String pass = request.getParameter("pass");
 
+
         // test avec la méthode de validation
         if(MemberManager.Instance().CheckPassword(nom,pass)) {
             request.getSession().setAttribute("nom", nom);
+            request.getSession().setAttribute("nav", 1);//gestion nav
 
             response.sendRedirect("homepage");
         } else {
             request.setAttribute("errorMessage", "Login invalide");
             request.getRequestDispatcher("/vues/login.jsp").forward(request, response);
+            request.getSession().setAttribute("nav", 0);//gestion nav
         }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/vues/login.jsp").forward(request,response);
+        request.getSession().setAttribute("nav", 0);//gestion nav
     }
 }

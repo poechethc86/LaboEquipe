@@ -20,6 +20,10 @@ public class ServletMembre extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //Récupération des membres
+        request.setAttribute("membres",membreService.recupereMembre());
 
+        //afichage de la vue:
+        request.getRequestDispatcher("web/vues/homepage.jsp").forward(request,response);
     }
 }

@@ -19,5 +19,10 @@ public class ServletSport extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        // Récupération des sports
+        request.setAttribute("sports", sportService.recupereSport());
+
+        // affichage de la vue :
+        request.getRequestDispatcher("vues/homepage.jsp").forward(request, response);
     }
 }

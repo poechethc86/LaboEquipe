@@ -14,6 +14,6 @@ public class ServletHomepage extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/vues/homepage.jsp").forward(request,response);
+        request.getRequestDispatcher("vues/homepage.jsp").forward(request,response);
     }
 }

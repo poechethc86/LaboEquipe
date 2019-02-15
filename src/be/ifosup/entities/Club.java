@@ -44,4 +44,28 @@ public class Club {
     public void setPk_club(int pk_club) {
         this.pk_club = pk_club;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Club)) return false;
+
+        Club club = (Club) o;
+
+        return getNom() != null ? getNom().equals(club.getNom()) : club.getNom() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return getNom() != null ? getNom().hashCode() : 0;
+    }
+
+    @Override
+    public String toString() {
+        return "Todo{" +
+                "nom='" + nom + '\'' +
+                ", sport='" + sport + '\'' +
+                ", pkClub='" + pk_club + '\'' +
+                '}';
+    }
 }

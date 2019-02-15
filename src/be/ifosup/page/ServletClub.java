@@ -13,12 +13,17 @@ import java.io.IOException;
 @WebServlet(name = "ServletClub", urlPatterns = {"/club"})
 public class ServletClub extends HttpServlet {
     // Création d'un instance de Club
-    private ClubService club = new ClubService();
+    private ClubService clubService = new ClubService();
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Récupération des clubs
+        request.setAttribute("clubs", clubService.recupereClub());
 
+        // affichage de la vue todoList
+        request.getRequestDispatcher("vues/homepage.jsp").forward(request, response);
     }
 }

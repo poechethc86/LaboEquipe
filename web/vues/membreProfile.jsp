@@ -25,14 +25,14 @@
 
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a href="Login"class="nav-link active" >Login</a>
+            <a href="Login" class="nav-link active" >Login</a>
         </li>
     </ul>
 </nav>
 
 <div class="row"style="margin-top:150px">
     <div class="col-sm-2"></div>
-    <div class="col-sm-8"><h1> Nom Prenom </h1> </div>
+    <div class="col-sm-8"><h1> ${nom} ${prenom} </h1> </div>
     <div class="col-sm-2"></div>
 </div>
 <div class="row" style="margin-top:100px">
@@ -64,11 +64,11 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>test</td>
-                <td>test</td>
-                <td>0</td>
-            </tr>
+            <c:forEach items="${clubs}" var="todo">
+                <tr>
+                    <td>${club.nom}</td>
+                </tr>
+            </c:forEach>
             <tr>
                 <td>test</td>
                 <td>test</td>
