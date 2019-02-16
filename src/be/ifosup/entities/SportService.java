@@ -1,5 +1,6 @@
 package be.ifosup.entities;
 
+import be.ifosup.database.SportManager;
 import be.ifosup.entities.Sport;
 
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ public class SportService {
     private static List <Sport> sports = new ArrayList<>();
 
     public List<Sport> recupereSport(){
-        return sports;
+        return SportManager.Instance().DisplaySports();
     }
 
     public void ajouteSport( Sport sport) {
