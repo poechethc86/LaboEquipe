@@ -1,5 +1,5 @@
 package be.ifosup.database;
-//testcommit
+//testcommit2
 import be.ifosup.entities.Club;
 import be.ifosup.entities.Membre;
 import be.ifosup.entities.Sport;
