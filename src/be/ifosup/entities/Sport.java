@@ -28,22 +28,7 @@ public class Sport {
     public void setPk_sport(int pk_sport) {
         this.pk_sport = pk_sport;
     }
-/*
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Sport)) return false;
 
-        Sport sport = (Sport) o;
-
-        return getPk_sport() != null ? getPk_sport().equals(sport.getPk_sport()) : sport.getPk_sport() == null;
-    }
-
-    @Override
-    public int hashCode() {
-        return getPk_sport() != null ? getPk_sport().hashCode() : 0;
-    }
-*/
     @Override
     public String toString() {
         return "Sport{" +

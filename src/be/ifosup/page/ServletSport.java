@@ -22,6 +22,7 @@ public class ServletSport extends HttpServlet {
         // Récupération des sports
         request.setAttribute("sports", sportService.recupereSport());
 
+        
         // affichage de la vue :
         request.getRequestDispatcher("vues/homepage.jsp").forward(request, response);
     }
