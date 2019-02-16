@@ -110,11 +110,11 @@ public class MemberManager extends DBManager {
         boolean noError = true;
         try {
             ConnectDB();
-            preparedStatement = connection.prepareStatement("UPDATE t_membres SET Nom_Membres =? Prenom_Membres = ? WHERE PK_Membres = ?");
+            preparedStatement = connection.prepareStatement("UPDATE t_membres SET `Nom_Membres` = ?, `Prenom_Membres` = ? WHERE `t_membres`.`PK_Membres` = ?");
             preparedStatement.setString(1,member.getNom());
             preparedStatement.setString(2,member.getPrenom());
             preparedStatement.setInt(3,member.getPk_membre());
-            result = preparedStatement.executeQuery();
+            preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
             e.printStackTrace();

@@ -39,13 +39,14 @@
     <div class="col-sm-2"></div>
     <div class="col-sm-5"><img src="default.jpg" class="img-thumbnail" alt="image par défaut" width=50%></div>
     <div class="col-sm-3">
-        <form action="/action_page.php">
+        <form action="update-member" method="post">
             Prenom:<br>
             <input type="text" name="firstname" value="${prenom}">
             <br>
             Nom:<br>
             <input type="text" name="lastname" value="${nom}">
             <br><br>
+            <input type="hidden" name="id" value="${id}">
             <input type="submit" class="btn btn-primary" value="Submit">
         </form>
     </div>
