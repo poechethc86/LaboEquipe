@@ -177,7 +177,7 @@
     <div class="row"style="margin-top:50px">
 
         <div class="col-sm-2"></div>
-        <div class="col-sm-3">
+        <div class="col-sm-4">
 
                 <div class="form-inline">
                     <div class="form-group">
@@ -187,7 +187,7 @@
                 </div>
         </div>
 
-        <div class="col-sm-3">
+        <div class="col-sm-4">
             <div class="form-inline">
                 <div class="form-group">
                     <label for="membFirstName">Prenom:  </label>
@@ -195,6 +195,16 @@
                 </div>
             </div>
 
+        </div>
+
+        <div class="col-sm-4">
+
+            <div class="form-inline">
+                <div class="form-group">
+                    <label for="membpass">Pass:  </label>
+                    <input type="text" class="form-control" id="membpass" name="pass">
+                </div>
+            </div>
         </div>
 
         <div class="col-sm-2"><button type="submit" class="btn btn-primary">Ajouter nouveau membre</button></div>
