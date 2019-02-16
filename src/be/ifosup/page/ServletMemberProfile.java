@@ -19,7 +19,10 @@ public class ServletMemberProfile extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("clubs", ClubManager.Instance().DisplayClubs(new Membre(Integer.parseInt(request.getParameter("id")))));
+        Membre membre = MemberManager.Instance().GetMember(Integer.parseInt(request.getParameter("id")));
+        request.setAttribute("nom",membre.getNom());
+        request.setAttribute("prenom",membre.getPrenom());
+        request.setAttribute("clubs", ClubManager.Instance().DisplayClubs(membre));
         request.getRequestDispatcher("/vues/membreProfile.jsp").forward(request,response);
     }
 }

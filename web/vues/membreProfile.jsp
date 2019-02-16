@@ -41,10 +41,10 @@
     <div class="col-sm-3">
         <form action="/action_page.php">
             Prenom:<br>
-            <input type="text" name="firstname" value="Prenom">
+            <input type="text" name="firstname" value="${prenom}">
             <br>
             Nom:<br>
-            <input type="text" name="lastname" value="Nom">
+            <input type="text" name="lastname" value="${nom}">
             <br><br>
             <input type="submit" class="btn btn-primary" value="Submit">
         </form>
