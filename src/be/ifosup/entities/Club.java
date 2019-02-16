@@ -6,7 +6,7 @@ public class Club {
     private String nom;
     private String sport;
     private int pk_club;
-    private int memberCount;
+    private int memberCount = 0;
 
     //constructeur:
 
@@ -46,6 +46,14 @@ public class Club {
         this.pk_club = pk_club;
     }
 
+    public int getMemberCount() {
+        return memberCount;
+    }
+
+    public void setMemberCount(int memberCount) {
+        this.memberCount = memberCount;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -63,11 +71,11 @@ public class Club {
 
     @Override
     public String toString() {
-        return "Todo{" +
+        return "Club{" +
                 "nom='" + nom + '\'' +
                 ", sport='" + sport + '\'' +
                 ", pkClub='" + pk_club + '\'' +
-                ", memberCount='" + memberCount + '\'' +
+                ", clubMemberCount='" + memberCount + '\'' +
                 '}';
     }
 
