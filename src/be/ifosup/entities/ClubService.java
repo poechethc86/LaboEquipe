@@ -10,11 +10,9 @@ public class ClubService {
 
     public List<Club> recupereClub(){
 
-
+    
        return ClubManager.Instance().DisplayClubs();
-       //test
-        //testgit
-		//testgit2
+
 		
 
     }
