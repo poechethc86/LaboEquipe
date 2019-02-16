@@ -1,3 +1,4 @@
+
 <%--
   Created by IntelliJ IDEA.
   User: tenka
@@ -41,25 +42,25 @@
 <%@include file="../templates/navigation.jsp"%>
 <div class="row" style="margin-top:150px">
     <div class="col-sm-2"></div>
-        <div class="col-sm-8">
-            <h1>Clubs</h1>
-            <table class="table table-striped" style="text-align:center">
-                <thead>
+    <div class="col-sm-8">
+        <h1>Clubs</h1>
+        <table class="table table-striped" style="text-align:center">
+            <thead>
+            <tr>
+                <th>Clubs</th>
+                <th>Sports</th>
+                <th>Membres</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach items="${clubs}" var="club">
                 <tr>
-                    <th>Clubs</th>
-                    <th>Sports</th>
-                    <th>Membres</th>
+                    <td>${club.nom}</td> <td>${club.sport}</td><td>${club.memberCount}</td>
                 </tr>
-                </thead>
-                <tbody>
-                <c:forEach items="${clubs}" var="club">
-                    <tr>
-                        <td>${club.nom}</td> <td>${club.sport}</td><td>${club.memberCount}</td>
-                    </tr>
-                </c:forEach>
-                </tbody>
-            </table>
-        </div>
+            </c:forEach>
+            </tbody>
+        </table>
+    </div>
     <div class="col-sm-2"></div>
 </div>
 <form action="add-club" method="post">
@@ -67,20 +68,20 @@
         <div class="col-sm-2"></div>
         <div class="col-sm-4">
 
-                <div class="form-inline">
-                    <div class="form-group">
-                        <label for="clubName">Nom du club:  </label>
-                        <input type="text" class="form-control" id="clubName">
+            <div class="form-inline">
+                <div class="form-group">
+                    <label for="clubName">Nom du club:  </label>
+                    <input type="text" class="form-control" id="clubName">
 
-                    </div>
                 </div>
+            </div>
         </div>
 
         <div class="col-sm-4">
             <div class="form-group">
                 <select class="form-control" id="sel1">
                     <c:forEach items="${clubs}" var="club">
-                            <option>${sport.nomSport}</option>
+                        <option>${sport.nomSport}</option>
                     </c:forEach>
                 </select>
             </div>
@@ -124,27 +125,27 @@
 
 
 <form action="add-sport" method="post">
-<div class="row"style="margin-top:50px">
-    <div class="col-sm-2"></div>
-    <div class="col-sm-4">
+    <div class="row"style="margin-top:50px">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-4">
 
             <div class="form-inline">
                 <div class="form-group">
-                   <label for="sportname2"> Nom du sport:  </label>
+                    <label for="sportname2"> Nom du sport:  </label>
                     <input type="text" class="form-control" name = "sportName" id = "sportname2"></in>
 
                 </div>
             </div>
+        </div>
+
+        <div class="col-sm-4">
+
+            <button type="submit" class="btn btn-primary" id="addspoort" name="add">ajouter le sport</button>
+        </div>
+
+        <div class="col-sm-2"></div>
+
     </div>
-
-    <div class="col-sm-4">
-
-        <button type="submit" class="btn btn-primary" id="addspoort" name="add">ajouter le sport</button>
-    </div>
-
-    <div class="col-sm-2"></div>
-
-</div>
 </form>
 
 
@@ -181,35 +182,27 @@
         <div class="col-sm-2"></div>
         <div class="col-sm-4">
 
-                <div class="form-inline">
-                    <div class="form-group">
-                        <label for="membName">Nom:  </label>
-                        <input type="text" class="form-control" id="membName" name="nom">
-                    </div>
-                </div>
-        </div>
-
-        <div class="col-sm-4">
             <div class="form-inline">
                 <div class="form-group">
+                    <label for="membName">Nom:  </label>
+                    <input type="text" class="form-control" id="membName" name="nom" size="30">
+
                     <label for="membFirstName">Prenom:  </label>
-                    <input type="text" class="form-control" id="membFirstName" name="prenom">
-                </div>
-            </div>
+                    <input type="text" class="form-control" id="membFirstName" name="prenom" size="30">
 
-        </div>
-
-        <div class="col-sm-4">
-
-            <div class="form-inline">
-                <div class="form-group">
                     <label for="membpass">Pass:  </label>
-                    <input type="text" class="form-control" id="membpass" name="pass">
+                    <input type="password" class="form-control" id="membpass" name="pass" size="30">
+
+                    <button type="submit" class="btn btn-primary">Ajouter nouveau membre</button></div>
                 </div>
             </div>
         </div>
 
-        <div class="col-sm-2"><button type="submit" class="btn btn-primary">Ajouter nouveau membre</button></div>
+
+
+
+
+        <div class="col-sm-5">
         <div class="col-sm-2"></div>
 
 
