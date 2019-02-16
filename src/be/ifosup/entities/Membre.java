@@ -55,28 +55,13 @@ public class Membre {
     public void setPk_membre(int pk_membre) {
         this.pk_membre = pk_membre;
     }
-/*
-    @Override
-    public boolean equals(Object o){
-        if (this == o) return true;
-        if(!(o instanceof Membre)) return false;
-        Membre membre =(Membre) o;
-        return getPk_membre() != null ? getPk_membre().equals(membre.getPk_membre()): membre.getPk_membre() == null;
 
-    }
-    @Override
-    public int hashCode() {
-        return getPk_membre() != null ? getPk_membre().hashCode() : 0;
-    }
-*/
+
     @Override
     public String toString() {
-        return "Membre{" +
-                "idMembre='" + pk_membre + '\'' +
-                ", nom='" + nom + '\'' +
+        return "membre{" +
+                "nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
-                ", password='" + password + '\'' +
-                ", user='" + user + '\'' +
                 '}';
     }
 }
