@@ -21,6 +21,9 @@ public class Membre {
         this(nom,prenom,"", "",-1);
     }
 
+    public Membre(int pk_membre) {
+        this("","","","",pk_membre);
+    }
 
     // Getters & Setters
     public void setNom(String nom) {
@@ -62,6 +65,7 @@ public class Membre {
         return "membre{" +
                 "nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
+                ", pk_membre='" + pk_membre + '\'' +
                 '}';
     }
 }

@@ -142,13 +142,15 @@ public class ClubManager extends DBManager {
         ArrayList<Club> listclub = new ArrayList<Club>();
         try {
             ConnectDB();
-            preparedStatement = connection.prepareStatement("SELECT t_clubs.Nom_Club FROM t_sports INNER JOIN (t_membres INNER JOIN (t_clubs INNER JOIN ti_membres_clubs ON t_clubs.PK_Club = ti_membres_clubs.FK_Clubs) ON t_membres.PK_Membres = ti_membres_clubs.FK_Membres) ON t_sports.PK_Sport = t_clubs.FK_Sport WHERE (((t_membres.PK_Membres)=?));");
+            preparedStatement = connection.prepareStatement("SELECT t_clubs.Nom_Club, t_sports.Nom_Sport, Count(ti_membres_clubs.FK_Membres) AS CompteDeFK_Membres FROM t_sports INNER JOIN (t_membres INNER JOIN (t_clubs INNER JOIN ti_membres_clubs ON t_clubs.PK_Club = ti_membres_clubs.FK_Clubs) ON t_membres.PK_Membres = ti_membres_clubs.FK_Membres) ON t_sports.PK_Sport = t_clubs.FK_Sport WHERE (((t_membres.PK_Membres)=?)) GROUP BY t_clubs.Nom_Club, t_sports.Nom_Sport, t_clubs.PK_Club;");
             preparedStatement.setInt(1,member.getPk_membre());
             result = preparedStatement.executeQuery();
 
 
             while (result.next()){
                 Club club = new Club(result.getString(1));
+                club.setSport(result.getString(2));
+                club.setMemberCount(result.getInt(3));
                 listclub.add(club);
             }
 

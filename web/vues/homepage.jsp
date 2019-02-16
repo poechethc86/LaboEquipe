@@ -159,6 +159,7 @@
             <tr>
                 <th>Nom</th>
                 <th>Prenom</th>
+                <th>Profil</th>
             </tr>
             </thead>
             <tbody>
@@ -166,6 +167,7 @@
                 <tr>
                     <td>${membre.nom}</td>
                     <td>${membre.prenom}</td>
+                    <td><a href="profileMember?id=${membre.pk_membre}">Profil</a></td>
                 </tr>
             </c:forEach>
             </tbody>

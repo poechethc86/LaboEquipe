@@ -64,21 +64,13 @@
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${clubs}" var="todo">
+            <c:forEach items="${clubs}" var="club">
                 <tr>
                     <td>${club.nom}</td>
+                    <td>${club.sport}</td>
+                    <td>${club.memberCount}</td>
                 </tr>
             </c:forEach>
-            <tr>
-                <td>test</td>
-                <td>test</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>test</td>
-                <td>test</td>
-                <td>0</td>
-            </tr>
             </tbody>
         </table>
     </div>
