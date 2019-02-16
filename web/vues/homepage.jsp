@@ -103,16 +103,10 @@
         <table class="table table-striped" style="text-align:center">
             <thead>
             <tr>
-                <th>Clubs</th>
                 <th>Sport</th>
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${clubs}" var="club">
-                <tr>
-                    <td>${club.nom}</td>
-                </tr>
-            </c:forEach>
             <c:forEach items="${sports}" var="sport">
                 <tr>
                     <td>${sport.nomSport}</td>
