@@ -75,7 +75,7 @@ public class Club {
                 "nom='" + nom + '\'' +
                 ", sport='" + sport + '\'' +
                 ", pkClub='" + pk_club + '\'' +
-                ", clubMemberCount='" + memberCount + '\'' +
+                ", memberCount='" + memberCount + '\'' +
                 '}';
     }
 

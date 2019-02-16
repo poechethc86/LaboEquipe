@@ -120,6 +120,7 @@ public class ClubManager extends DBManager {
             while (result.next()){
                 Club club = new Club(result.getString(1),result.getString(2),result.getInt(4));
                 club.setMemberCount(result.getInt(3));
+                System.out.println("Club : " + club);
                 listclub.add(club);
             }
 
