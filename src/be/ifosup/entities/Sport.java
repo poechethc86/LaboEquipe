@@ -11,6 +11,9 @@ public class Sport {
         this.nomSport = nomSport;
         this.pk_sport = pk_sport;
     }
+    public Sport(String nom) {
+        this(nom,-1);
+    }
 
     //getter setter:
     public String getNomSport() {
