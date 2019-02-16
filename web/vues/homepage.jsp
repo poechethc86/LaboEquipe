@@ -130,15 +130,16 @@
 
             <div class="form-inline">
                 <div class="form-group">
-                   <!--label for="sportName"> Nom du sport:  </label-->
-                    <input type="text" class="form-control" name = "sportName">
+                   <label for="sportname2"> Nom du sport:  </label>
+                    <input type="text" class="form-control" name = "sportName" id = "sportname2"></in>
 
                 </div>
             </div>
     </div>
 
     <div class="col-sm-4">
-        <input type="submit" class="btn btn-primary">Ajouter le sport</in>
+
+        <button type="submit" class="btn btn-primary" id="addspoort" name="add">ajouter le sport</button>
     </div>
 
     <div class="col-sm-2"></div>
