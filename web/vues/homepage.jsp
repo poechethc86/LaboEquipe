@@ -54,7 +54,7 @@
                 <tbody>
                 <c:forEach items="${clubs}" var="club">
                     <tr>
-                        <td>${club.nom}</td> <td>${club.sport}</td><td>${club.memberCount}</td>
+                        <td>${club.nom}</td> <td>${club.sport}</td><td>${club.nom}</td>
                     </tr>
                 </c:forEach>
                 </tbody>
