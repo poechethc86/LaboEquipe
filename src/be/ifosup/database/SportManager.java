@@ -4,6 +4,7 @@ import be.ifosup.entities.Club;
 import be.ifosup.entities.Membre;
 import be.ifosup.entities.Sport;
 
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,8 +25,14 @@ public class SportManager extends DBManager {
         boolean noError = true;
         try {
             ConnectDB();
-            preparedStatement = connection.prepareStatement("INSERT INTO t_sports(Nom_Sport) VALUES (?)");
+            System.out.println(sport.getNomSport());
+            preparedStatement = connection.prepareStatement("INSERT INTO `t_sports`(`Nom_Sport`) VALUES (?);");
+
+
+
+
             preparedStatement.setString(1,sport.getNomSport());
+             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
             noError = false;

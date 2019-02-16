@@ -1,7 +1,10 @@
 package be.ifosup.page;
 
 import be.ifosup.database.SportManager;
+import be.ifosup.entities.ClubService;
+import be.ifosup.entities.MembreService;
 import be.ifosup.entities.Sport;
+import be.ifosup.entities.SportService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,10 +15,11 @@ import java.io.IOException;
 
 @WebServlet(name = "Servletaddsport" , urlPatterns = {"/add-sport"})
 public class Servletaddsport extends HttpServlet {
+
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        System.out.println("test");
-        System.out.println(request.getParameter("sportName"));
+
         Sport sport = new Sport(request.getParameter("sportName"));
         SportManager.Instance().AddSport(sport);
 
@@ -24,5 +28,6 @@ public class Servletaddsport extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        request.getRequestDispatcher("/homepage").forward(request,response);
     }
 }
