@@ -1,8 +1,12 @@
 package be.ifosup.database;
 
+import be.ifosup.entities.Club;
+import be.ifosup.entities.Membre;
 import be.ifosup.entities.Sport;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SportManager extends DBManager {
     private SportManager () {}
@@ -30,4 +34,110 @@ public class SportManager extends DBManager {
         }
         return noError;
     }
+
+    public boolean RemoveSport(Sport sport){  // /!\ controle displaysport puis displayclub before
+
+        boolean noError = true;
+        try {
+            ConnectDB();
+
+
+
+
+            preparedStatement = connection.prepareStatement("Delete FROM `t_sports` WHERE `PK_Sport`= ? ");
+            preparedStatement.setInt(1, sport.getPk_sport());
+            result = preparedStatement.executeQuery();
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            noError = false;
+        } finally {
+            CloseDB();
+        }
+        return noError;
+    }// /!\ check ManageClub.DisplayClubs(Sport sport) must be empty
+
+    public boolean UpdateSport(Sport sport){
+        boolean noError = true;
+        try {
+            ConnectDB();
+
+
+
+
+            preparedStatement = connection.prepareStatement("UPDATE t_Sports SET Nom_Sport =?  WHERE PK_Sport = ? ");
+
+            preparedStatement.setString(1, sport.getNomSport());
+            preparedStatement.setInt(2,sport.getPk_sport());
+            result = preparedStatement.executeQuery();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            noError = false;
+        } finally {
+            CloseDB();
+        }
+        return noError;
+    }
+
+
+    public List<Sport> DisplaySports(Membre member){
+
+        ArrayList<Sport> listsport = new ArrayList<Sport>();
+        try {
+            ConnectDB();
+            preparedStatement = connection.prepareStatement("SELECT t_sports.Nom_Sport FROM t_membres INNER JOIN ((t_sports INNER JOIN t_clubs ON t_sports.PK_Sport = t_clubs.FK_Sport) INNER JOIN ti_membres_clubs ON t_clubs.PK_Club = ti_membres_clubs.FK_Clubs) ON t_membres.PK_Membres = ti_membres_clubs.FK_Membres WHERE (((t_membres.PK_Membres)=?));");
+            preparedStatement.setInt(1,member.getPk_membre());
+            result = preparedStatement.executeQuery();
+
+
+            while (result.next()){
+                Sport sport = new Sport(result.getString(1));
+                listsport.add( sport);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            CloseDB();
+        }
+
+        return listsport;
+
+
+
+
+
+    }
+
+    public List<Sport> DisplaySports() {
+
+        ArrayList<Sport> listsport = new ArrayList<Sport>();
+        try {
+            ConnectDB();
+            preparedStatement = connection.prepareStatement("SELECT t_sports.Nom_Sport, t_sports.PK_Sport FROM t_sports;");
+            result = preparedStatement.executeQuery();
+
+            while (result.next()){
+                Sport sport = new Sport(result.getString(1),result.getInt(2));
+                listsport.add(sport);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            CloseDB();
+        }
+
+        return listsport;
+
+
+
+
+    }
+
+
+
+
 }
