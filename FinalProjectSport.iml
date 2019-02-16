@@ -19,15 +19,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-<<<<<<< Updated upstream
-    <orderEntry type="library" scope="PROVIDED" name="Tomcat 9.0.14" level="application_server_libraries" />
-    <orderEntry type="library" name="javax.annotation" level="project" />
-    <orderEntry type="library" name="javax.servlet:jstl:1.2" level="project" />
-=======
-    <orderEntry type="library" name="javax.servlet:jstl:1.1.2" level="project" />
-    <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
     <orderEntry type="library" name="mysql:mysql-connector-java:8.0.15" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Tomcat 9.0.14" level="application_server_libraries" />
->>>>>>> Stashed changes
+    <orderEntry type="library" name="javax.annotation" level="project" />
   </component>
 </module>
