@@ -6,6 +6,7 @@ public class Club {
     private String nom;
     private String sport;
     private int pk_club;
+    private int memberCount;
 
     //constructeur:
 
@@ -66,6 +67,7 @@ public class Club {
                 "nom='" + nom + '\'' +
                 ", sport='" + sport + '\'' +
                 ", pkClub='" + pk_club + '\'' +
+                ", memberCount='" + memberCount + '\'' +
                 '}';
     }
 
