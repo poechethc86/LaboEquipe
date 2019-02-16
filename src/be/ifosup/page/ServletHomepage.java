@@ -2,10 +2,7 @@ package be.ifosup.page;
 
 import be.ifosup.database.ClubManager;
 import be.ifosup.database.SportManager;
-import be.ifosup.entities.ClubService;
-import be.ifosup.entities.MembreService;
-import be.ifosup.entities.Sport;
-import be.ifosup.entities.SportService;
+import be.ifosup.entities.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,8 +18,8 @@ public class ServletHomepage extends HttpServlet {
     private SportService sportService = new SportService();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Sport sport = new Sport(request.getParameter("add-sport"));
-        SportManager.Instance().AddSport(sport);
+
+
 
 
     }

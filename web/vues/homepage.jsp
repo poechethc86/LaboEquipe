@@ -87,16 +87,17 @@
         </div>
         <div class="col-sm-2"></div>
     </div>
-</form>
-<div class="row">
-    <div class="col-sm-5"></div>
-    <div class="col-sm-2">
-        <button type="submit" class="btn btn-primary">Ajouter le club</button>
+    <div class="row">
+        <div class="col-sm-5"></div>
+        <div class="col-sm-2">
+            <button type="submit" class="btn btn-primary">Ajouter le club</button>
 
+        </div>
+        <div class="col-sm-5"></div>
     </div>
-    <div class="col-sm-5"></div>
-</div>
-</div>
+</form>
+
+
 
 <div class="row"style="margin-top:150px">
     <div class="col-sm-2"></div>
@@ -119,6 +120,9 @@
     </div>
     <div class="col-sm-2"></div>
 </div>
+
+
+
 <form action="add-sport" method="post">
 <div class="row"style="margin-top:50px">
     <div class="col-sm-2"></div>
@@ -126,21 +130,25 @@
 
             <div class="form-inline">
                 <div class="form-group">
-                    <label for="sportName">Nom du sport:  </label>
-                    <input type="text" class="form-control" id="sportName">
+                   <!--label for="sportName"> Nom du sport:  </label-->
+                    <input type="text" class="form-control" name = "sportName">
 
                 </div>
             </div>
     </div>
 
     <div class="col-sm-4">
-        <button type="submit" class="btn btn-primary">Ajouter le sport</button>
+        <input type="submit" class="btn btn-primary">Ajouter le sport</in>
     </div>
 
     <div class="col-sm-2"></div>
 
 </div>
 </form>
+
+
+
+
 <div class="row" style="margin-top:150px">
     <div class="col-sm-2"></div>
     <div class="col-sm-8">
