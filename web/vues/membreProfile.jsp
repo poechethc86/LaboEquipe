@@ -14,7 +14,7 @@
 <%@include file="../templates/header.jsp"%>
 <%@include file="../templates/navigation.jsp"%>
 <nav class="navbar navbar-expand-sm navbar-dark bg-primary mb-3 fixed-top">
-    <a href="#" class="navbar-brand">Home page</a>
+    <a href="homepage" class="navbar-brand">Home page</a>
 
     <ul class="navbar-nav mr-auto">
 
