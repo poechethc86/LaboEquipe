@@ -51,7 +51,7 @@ public class MemberManager extends DBManager {
             preparedStatement.setString(3,member.getPassword());
             preparedStatement.setString(4,member.getUser());
 
-            result = preparedStatement.executeQuery();
+            preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
             e.printStackTrace();

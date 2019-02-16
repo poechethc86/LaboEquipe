@@ -182,7 +182,7 @@
                 <div class="form-inline">
                     <div class="form-group">
                         <label for="membName">Nom:  </label>
-                        <input type="text" class="form-control" id="membName">
+                        <input type="text" class="form-control" id="membName" name="nom">
                     </div>
                 </div>
         </div>
@@ -191,7 +191,7 @@
             <div class="form-inline">
                 <div class="form-group">
                     <label for="membFirstName">Prenom:  </label>
-                    <input type="text" class="form-control" id="membFirstName">
+                    <input type="text" class="form-control" id="membFirstName" name="prenom">
                 </div>
             </div>
 
