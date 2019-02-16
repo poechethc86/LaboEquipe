@@ -71,6 +71,7 @@
                     <div class="form-group">
                         <label for="clubName">Nom du club:  </label>
                         <input type="text" class="form-control" id="clubName">
+
                     </div>
                 </div>
         </div>
@@ -91,6 +92,7 @@
     <div class="col-sm-5"></div>
     <div class="col-sm-2">
         <button type="submit" class="btn btn-primary">Ajouter le club</button>
+
     </div>
     <div class="col-sm-5"></div>
 </div>
@@ -126,6 +128,7 @@
                 <div class="form-group">
                     <label for="sportName">Nom du sport:  </label>
                     <input type="text" class="form-control" id="sportName">
+
                 </div>
             </div>
     </div>

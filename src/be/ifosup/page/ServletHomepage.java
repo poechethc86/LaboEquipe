@@ -1,7 +1,10 @@
 package be.ifosup.page;
 
+import be.ifosup.database.ClubManager;
+import be.ifosup.database.SportManager;
 import be.ifosup.entities.ClubService;
 import be.ifosup.entities.MembreService;
+import be.ifosup.entities.Sport;
 import be.ifosup.entities.SportService;
 
 import javax.servlet.ServletException;
@@ -18,6 +21,9 @@ public class ServletHomepage extends HttpServlet {
     private SportService sportService = new SportService();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Sport sport = new Sport(request.getParameter("add-sport"));
+        SportManager.Instance().AddSport(sport);
+
 
     }
 
@@ -26,5 +32,6 @@ public class ServletHomepage extends HttpServlet {
         request.setAttribute("clubs",clubService.recupereClub());
         request.setAttribute("sports",sportService.recupereSport());
         request.getRequestDispatcher("/vues/homepage.jsp").forward(request,response);
+
     }
 }
