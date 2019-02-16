@@ -114,11 +114,12 @@ public class ClubManager extends DBManager {
         ArrayList<Club> listclub = new ArrayList<Club>();
         try {
             ConnectDB();
-            preparedStatement = connection.prepareStatement("SELECT t_clubs.Nom_Club, t_sports.Nom_Sport, Count(ti_membres_clubs.FK_Membres) AS CompteDeFK_Membres FROM (t_sports INNER JOIN t_clubs ON t_sports.PK_Sport = t_clubs.FK_Sport) LEFT JOIN ti_membres_clubs ON t_clubs.PK_Club = ti_membres_clubs.FK_Clubs GROUP BY t_clubs.Nom_Club, t_sports.Nom_Sport ");
+            preparedStatement = connection.prepareStatement("SELECT t_clubs.Nom_Club, t_sports.Nom_Sport, Count(ti_membres_clubs.FK_Membres) AS CompteDeFK_Membres, t_clubs.PK_Club FROM (t_sports INNER JOIN t_clubs ON t_sports.PK_Sport = t_clubs.FK_Sport) LEFT JOIN ti_membres_clubs ON t_clubs.PK_Club = ti_membres_clubs.FK_ClubsGROUP BY t_clubs.Nom_Club, t_sports.Nom_Sport, t_clubs.PK_Club;");
             result = preparedStatement.executeQuery();
 
             while (result.next()){
                 Club club = new Club(result.getString(1),result.getString(2),result.getInt(3));
+
                 listclub.add(club);
             }
 
