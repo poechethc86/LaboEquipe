@@ -22,12 +22,13 @@ public class Servletaddsport extends HttpServlet {
 
         Sport sport = new Sport(request.getParameter("sportName"));
         SportManager.Instance().AddSport(sport);
+        response.sendRedirect("homepage");
 
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        request.getRequestDispatcher("/homepage").forward(request,response);
+        request.getRequestDispatcher("/vues/homepage.jsp").forward(request,response);
     }
 }
