@@ -118,8 +118,8 @@ public class ClubManager extends DBManager {
             result = preparedStatement.executeQuery();
 
             while (result.next()){
-                Club club = new Club(result.getString(1),result.getString(2),result.getInt(3));
-
+                Club club = new Club(result.getString(1),result.getString(2),result.getInt(4));
+                club.setMemberCount(result.getInt(3));
                 listclub.add(club);
             }
 
