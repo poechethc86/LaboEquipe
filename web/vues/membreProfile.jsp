@@ -13,22 +13,6 @@
 <body>
 <%@include file="../templates/header.jsp"%>
 <%@include file="../templates/navigation.jsp"%>
-<nav class="navbar navbar-expand-sm navbar-dark bg-primary mb-3 fixed-top">
-    <a href="homepage" class="navbar-brand">Home page</a>
-
-    <ul class="navbar-nav mr-auto">
-
-        <li class="nav-item">
-            <a href="todo" class="nav-link"></a>
-        </li>
-    </ul>
-
-    <ul class="navbar-nav">
-        <li class="nav-item">
-            <a href="Login" class="nav-link active" >Login</a>
-        </li>
-    </ul>
-</nav>
 
 <div class="row"style="margin-top:150px">
     <div class="col-sm-2"></div>
