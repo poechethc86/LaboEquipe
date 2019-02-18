@@ -232,7 +232,7 @@ public class MemberManager extends DBManager {
             preparedStatement = connection.prepareStatement("Delete FROM `ti_membres_clubs` WHERE `FK_Clubs`= ? AND `FK_Membres`= ?");
             preparedStatement.setInt(1,club.getPk_club());
             preparedStatement.setInt(2,member.getPk_membre());
-            result = preparedStatement.executeQuery();
+            preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
             e.printStackTrace();

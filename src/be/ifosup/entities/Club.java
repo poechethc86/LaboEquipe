@@ -19,6 +19,9 @@ public class Club {
         this(nom,"",-1);
     }
 
+    public Club(int id) {
+        this("","",id);
+    }
 
     //getter setter:
 
@@ -74,7 +77,7 @@ public class Club {
         return "Club{" +
                 "nom='" + nom + '\'' +
                 ", sport='" + sport + '\'' +
-                ", pkClub='" + pk_club + '\'' +
+                ", pk_club='" + pk_club + '\'' +
                 ", memberCount='" + memberCount + '\'' +
                 '}';
     }

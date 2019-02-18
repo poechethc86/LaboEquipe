@@ -47,7 +47,7 @@
             <input type="text" name="lastname" value="${nom}">
             <br><br>
             <input type="hidden" name="id" value="${id}">
-            <input type="submit" class="btn btn-primary" value="Submit">
+            <input type="submit" class="btn btn-primary" value="Éditer">
         </form>
     </div>
     <div class="col-sm-2"></div>
@@ -62,6 +62,7 @@
                 <th>Clubs</th>
                 <th>Sports</th>
                 <th>Membres</th>
+                <th>Désinscription</th>
             </tr>
             </thead>
             <tbody>
@@ -70,6 +71,13 @@
                     <td>${club.nom}</td>
                     <td>${club.sport}</td>
                     <td>${club.memberCount}</td>
+                    <td>
+                        <form action="unsubscribe-club" method="post">
+                            <input type="hidden" name="clubId" value="${club.pk_club}">
+                            <input type="hidden" name="memberId" value="${id}">
+                            <input type="submit" class="btn btn-primary" value="Désinscription">
+                        </form>
+                    </td>
                 </tr>
             </c:forEach>
             </tbody>
