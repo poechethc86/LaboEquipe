@@ -11,9 +11,6 @@ public class MembreService {
 
     public List<Membre> recupereMembre(){
         List<Membre> list = MemberManager.Instance().DisplayMembers();
-        for (int i = 0; i < list.size(); i++) {
-            System.out.println(list.get(i));
-        }
         return list;
     }
 
