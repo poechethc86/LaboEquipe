@@ -24,6 +24,7 @@ public class ServletMemberProfile extends HttpServlet {
         request.setAttribute("prenom",membre.getPrenom());
         request.setAttribute("id",request.getParameter("id"));
         request.setAttribute("clubs", ClubManager.Instance().DisplayClubs(membre));
+        request.setAttribute("clubstosub",ClubManager.Instance().DisplayClubsToSubscribe(membre));
         request.getRequestDispatcher("/vues/membreProfile.jsp").forward(request,response);
     }
 }

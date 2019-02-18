@@ -68,6 +68,25 @@
         </table>
     </div>
     <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+        <h1>Inscription</h1>
+        <form action="subscribe-club" method="post">
+            <tr>
+                <td>
+                    <select name="clubId">
+                        <c:forEach items="${clubstosub}" var="club">
+                            <option value="${club.pk_club}">${club.nom}</option>
+                        </c:forEach>
+                    </select>
+                </td>
+                <td>
+                    <input type="hidden" name="memberId" value="${id}">
+                    <input type="submit" class="btn btn-primary" value="Inscription">
+                </td>
+            </tr>
+        </form>
+    </div>
+    <div class="col-sm-2"></div>
 </div>
 <%@include file="../templates/footer.jsp"%>
 </body>

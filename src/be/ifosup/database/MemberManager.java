@@ -210,10 +210,10 @@ public class MemberManager extends DBManager {
         try {
             ConnectDB();
 
-            preparedStatement = connection.prepareStatement("INSERT INTO ti_membres_club VALUES (?, ?)");
+            preparedStatement = connection.prepareStatement("INSERT INTO ti_membres_clubs ( `FK_Clubs`,`FK_Membres`) VALUES (?, ?)");
             preparedStatement.setInt(1,club.getPk_club());
             preparedStatement.setInt(2,member.getPk_membre());
-            result = preparedStatement.executeQuery();
+            preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
             e.printStackTrace();
