@@ -210,7 +210,26 @@ public class ClubManager extends DBManager {
     }
 
 
+    public Club GetClub (int pk_club) {
+        Club club = new Club(pk_club);
+        try {
+            ConnectDB();
+            preparedStatement = connection.prepareStatement("SELECT t_clubs.Nom_Club, t_clubs.FK_Sport, t_clubs.PK_Club FROM t_clubs WHERE (((t_clubs.PK_Club)=?));");
+            preparedStatement.setInt(1,pk_club);
 
+            result = preparedStatement.executeQuery();
+            if (result.next()) {
+                club.setNom(result.getString(1));
+                club.setPkSport(result.getInt(2));
+                club.setPk_club(result.getInt(3));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            CloseDB();
+        }
+        return club;
+    }
 
 }
 

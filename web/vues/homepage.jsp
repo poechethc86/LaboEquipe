@@ -16,7 +16,9 @@
             <tbody>
             <c:forEach items="${clubs}" var="club">
                 <tr>
-                    <td>${club.nom}</td> <td>${club.sport}</td><td>${club.memberCount}</td>
+                    <!-- <td>${club.nom}</td> <td>${club.sport}</td><td>${club.memberCount}</td> -->
+
+                    <td><a href="infoclub?id=${club.pk_club}">${club.nom}</a></td> <td>${club.sport}</td><td>${club.memberCount}</td>
                 </tr>
             </c:forEach>
             </tbody>

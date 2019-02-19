@@ -7,6 +7,7 @@ public class Club {
     private String sport;
     private int pk_club;
     private int memberCount = 0;
+    private int pksport;
 
     //constructeur:
 
@@ -33,6 +34,10 @@ public class Club {
 
     public void setNom(String nom) {
         this.nom = nom;
+    }
+
+    public void setPkSport(int pkSport){
+        this.pksport = pkSport;
     }
 
     public String getSport() {
