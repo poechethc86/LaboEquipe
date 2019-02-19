@@ -15,6 +15,10 @@ public class Sport {
         this(nom,-1);
     }
 
+    public Sport (int id) {
+        this("",id);
+    }
+
     //getter setter:
     public String getNomSport() {
         return nomSport;
