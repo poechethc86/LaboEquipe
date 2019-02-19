@@ -1,43 +1,4 @@
 
-<%--
-  Created by IntelliJ IDEA.
-  User: tenka
-  Date: 02-02-19
-  Time: 10:00
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Homepage</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.2.1/cerulean/bootstrap.min.css" rel="stylesheet" integrity="sha384-62+JPIF7fVYAPS4itRiqKa7VU321chxfKZRtkSY0tGoTwcUItAFEH/HGTpvDH6e6" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-
-    <style>
-
-        th {
-            background-color: #4CB1EA;
-        }
-
-        table {
-            text-align:center;
-        }
-
-        h1 {
-            text-align:center
-        }
-
-
-    </style>
-</head>
-<body>
 <%@include file="../templates/header.jsp"%>
 <%@include file="../templates/navigation.jsp"%>
 <div class="row" style="margin-top:150px">
@@ -80,7 +41,7 @@
         <div class="col-sm-4">
             <div class="form-group">
                 <select class="form-control" id="sel1">
-                    <c:forEach items="${clubs}" var="club">
+                    <c:forEach items="${sports}" var="sport">
                         <option>${sport.nomSport}</option>
                     </c:forEach>
                 </select>
@@ -180,8 +141,7 @@
     <div class="row"style="margin-top:50px">
 
         <div class="col-sm-2"></div>
-        <div class="col-sm-4">
-
+        <div class="col-sm-8">
             <div class="form-inline">
                 <div class="form-group">
                     <label for="membName">Nom:  </label>
@@ -193,24 +153,18 @@
                     <label for="membpass">Pass:  </label>
                     <input type="password" class="form-control" id="membpass" name="pass" size="30">
 
-                    <button type="submit" class="btn btn-primary">Ajouter nouveau membre</button></div>
+                    <button type="submit" class="btn btn-primary">Ajouter nouveau membre</button>
                 </div>
             </div>
         </div>
 
-
-
-
-
-        <div class="col-sm-5">
         <div class="col-sm-2"></div>
 
 
     </div>
 </form>
-</br>
+<div class="row"style="margin-top:150px"></div>
 <%@include file="../templates/footer.jsp"%>
-</body>
-</html>
+
 
 

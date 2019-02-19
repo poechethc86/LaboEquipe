@@ -18,6 +18,14 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 
     <style>
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            /* Set the fixed height of the footer here */
+            height: 60px;
+            background-color: #f5f5f5;
+        }
 
         th {
             background-color: #4CB1EA;
@@ -36,5 +44,3 @@
 </head>
 <body>
 
-</body>
-</html>
