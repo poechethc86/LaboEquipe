@@ -32,7 +32,7 @@
             <div class="form-inline">
                 <div class="form-group">
                     <label for="clubName">Nom du club:  </label>
-                    <input type="text" class="form-control" id="clubName">
+                    <input type="text" class="form-control" id="clubNames" name="clubName">
 
                 </div>
             </div>
@@ -40,7 +40,7 @@
 
         <div class="col-sm-4">
             <div class="form-group">
-                <select class="form-control" id="sel1">
+                <select class="form-control" id="sel1" name="sportname">
                     <c:forEach items="${sports}" var="sport">
                         <option>${sport.nomSport}</option>
                     </c:forEach>

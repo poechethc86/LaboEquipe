@@ -19,6 +19,8 @@ public class Club {
         this(nom,"",-1);
     }
 
+
+
     public Club(int id) {
         this("","",id);
     }

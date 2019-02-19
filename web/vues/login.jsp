@@ -12,7 +12,7 @@
 <div class="container contenu" style="margin-top:150px">
     <div class="row justify-content-center">
         <div class="col-4">
-            <h3 class="p-3 bg-primary text-white text-center">Login Todo App</h3>
+            <h3 class="p-3 bg-primary text-white text-center">Login Labo équipe</h3>
             <form action="login" method="post">
                 <p class="bg-danger text-white">${errorMessage}</p>
                 <div class="form-group">

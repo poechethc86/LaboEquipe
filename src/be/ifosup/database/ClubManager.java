@@ -29,18 +29,12 @@ public class ClubManager extends DBManager {
             ConnectDB();
 
 
-            preparedStatement = connection.prepareStatement("SELECT t_sports.PK_Sport FROM t_sports WHERE t_sports.Nom_Sport=?");
-            preparedStatement.setString(1, club.getSport());
-            result = preparedStatement.executeQuery();
-            result.next();
-            int pksport = result.getInt(1);
-
             preparedStatement = connection.prepareStatement("INSERT INTO t_clubs(Nom_Club,FK_Sport) VALUES (?, ?)");
             preparedStatement.setString(1, club.getNom());
-            preparedStatement.setInt(2, pksport);
+            preparedStatement.setInt(2, club.getPk_club());
 
 
-            result = preparedStatement.executeQuery();
+            preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
             e.printStackTrace();
