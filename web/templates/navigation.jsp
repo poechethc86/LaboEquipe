@@ -1,7 +1,7 @@
 
 <div class="container">
     <nav class="navbar navbar-expand-sm navbar-dark bg-primary mb-3 fixed-top">
-        <a href="homepage.jsp" class="navbar-brand">Home page</a>
+        <a href="homepage" class="navbar-brand">Home page</a>
 
         <ul class="navbar-nav mr-auto">
 

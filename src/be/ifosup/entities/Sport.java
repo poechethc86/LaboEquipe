@@ -37,6 +37,7 @@ public class Sport {
         return "Sport{" +
                 "pkSport='" + pk_sport + '\'' +
                 ", nomSport='" + nomSport + '\'' +
+                ", pk_sport='" + pk_sport + '\'' +
                 '}';
     }
 }

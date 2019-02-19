@@ -40,9 +40,9 @@
 
         <div class="col-sm-4">
             <div class="form-group">
-                <select class="form-control" id="sel1" name="sportname">
+                <select name="clubId" class="form-control" id="sel1">
                     <c:forEach items="${sports}" var="sport">
-                        <option>${sport.nomSport}</option>
+                        <option value="${sport.pk_sport}>${sport.nomSport}</option>
                     </c:forEach>
                 </select>
             </div>
