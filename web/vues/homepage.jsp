@@ -123,16 +123,17 @@
             <thead>
             <tr>
                 <th>Nom</th>
-                <th>Prenom</th>
-                <th>Profil</th>
+                <!--<th>Prenom</th>
+                <th>Profil</th>-->
             </tr>
             </thead>
             <tbody>
             <c:forEach items="${membres}" var="membre">
                 <tr>
-                    <td>${membre.nom}</td>
+                    <td><a href="profileMember?id=${membre.pk_membre}" >${membre.nom} ${membre.prenom}</a></td>
+                    <!--<td>${membre.nom}</td>
                     <td>${membre.prenom}</td>
-                    <td><a href="profileMember?id=${membre.pk_membre}">Profil</a></td>
+                    <td><a href="profileMember?id=${membre.pk_membre}">Profil</a></td>-->
                 </tr>
             </c:forEach>
             </tbody>

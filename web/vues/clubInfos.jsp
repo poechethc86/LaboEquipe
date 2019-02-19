@@ -8,22 +8,20 @@
 <div class="row">
     <div class="col-sm-2"></div>
     <div class="col-sm-8">
-        <h1>Membres</h1>
+        <!--<h1>Membres</h1>-->
         <table class="table table-striped" style="text-align:center">
             <thead>
             <tr>
-                <th>Nom</th>
-                <th>Prenom</th>
-                <th>Profil</th>
+                <th>Membres</th>
+
+                <th>Desinscription</th>
             </tr>
             </thead>
             <tbody>
             <c:forEach items="${membres}" var="membre">
                 <tr>
-                    <td>${membre.nom}</td>
-                    <td>${membre.prenom}</td>
 
-                    <td><a href="profileMember?id=${membre.pk_membre}">Profil</a></td>
+                    <td><a href="profileMember?id=${membre.pk_membre}" >${membre.nom} ${membre.prenom}</a></td>
                     <td>
                         <form action="unsubscribe-membre" method="post">
                             <input type="hidden" name="clubId" value="${id}">

@@ -45,7 +45,7 @@
             <tr>
                 <th>Clubs</th>
                 <th>Sports</th>
-                <th>Membres</th>
+                <th>Nombre de membres</th>
                 <th>Désinscription</th>
             </tr>
             </thead>

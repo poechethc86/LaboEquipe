@@ -1,5 +1,6 @@
 package be.ifosup.page;
 
+import be.ifosup.database.ClubManager;
 import be.ifosup.database.SportManager;
 import be.ifosup.entities.Sport;
 
@@ -22,6 +23,7 @@ public class Servletinfosport extends HttpServlet {
         Sport sport = SportManager.Instance().GetSport(Integer.parseInt(request.getParameter("id")));
         request.setAttribute("nom",sport.getNomSport());
         request.setAttribute("id",request.getParameter("id"));
+        request.setAttribute("membres", ClubManager.Instance().DisplayClubsandcount(sport));
 
 
         request.getRequestDispatcher("/vues/sportInfos.jsp").forward(request,response);
