@@ -2,7 +2,7 @@
 <%@include file="../templates/navigation.jsp"%>
 <div class="row" style="margin-top:150px">
     <div class="col-sm-2"></div>
-    <div class="col-sm-8"><h1>Club de </h1></div>
+    <div class="col-sm-8"><h1>${nom}</h1></div>
     <div class="col-sm-2"></div>
 </div>
 <div class="row">
