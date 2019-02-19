@@ -1,5 +1,8 @@
 package be.ifosup.page;
 
+import be.ifosup.database.SportManager;
+import be.ifosup.entities.Sport;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,6 +17,14 @@ public class Servletinfosport extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
+        Sport sport = SportManager.Instance().GetSport(Integer.parseInt(request.getParameter("id")));
+        request.setAttribute("nom",sport.getNomSport());
+        request.setAttribute("id",request.getParameter("id"));
+
+
+        request.getRequestDispatcher("/vues/sportInfos.jsp").forward(request,response);
 
     }
 }

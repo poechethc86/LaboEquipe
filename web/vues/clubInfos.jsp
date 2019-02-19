@@ -22,7 +22,15 @@
                 <tr>
                     <td>${membre.nom}</td>
                     <td>${membre.prenom}</td>
+
                     <td><a href="profileMember?id=${membre.pk_membre}">Profil</a></td>
+                    <td>
+                        <form action="unsubscribe-membre" method="post">
+                            <input type="hidden" name="clubId" value="${id}">
+                            <input type="hidden" name="memberId" value="${membre.pk_membre}">
+                            <input type="submit" class="btn btn-primary" value="Désinscription">
+                        </form>
+                    </td>
                 </tr>
             </c:forEach>
             </tbody>

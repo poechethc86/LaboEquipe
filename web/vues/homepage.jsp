@@ -76,7 +76,8 @@
             <tbody>
             <c:forEach items="${sports}" var="sport">
                 <tr>
-                    <td>${sport.nomSport}</td>
+                    <td><a href="infosport?id=${sport.pk_sport}">${sport.nomSport}</a></td>
+                    <!-- <td>${sport.nomSport}</td> -->
                 </tr>
             </c:forEach>
             </tbody>

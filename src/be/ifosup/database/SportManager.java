@@ -144,6 +144,27 @@ public class SportManager extends DBManager {
 
     }
 
+    public Sport GetSport (int pk_sport) {
+        Sport sport = new Sport(pk_sport);
+        try {
+            ConnectDB();
+            preparedStatement = connection.prepareStatement("SELECT t_sports.PK_Sport, t_sports.Nom_Sport FROM t_sports WHERE t_sports.PK_Sport=?;");
+            preparedStatement.setInt(1,pk_sport);
+
+            result = preparedStatement.executeQuery();
+            if (result.next()) {
+
+                sport.setNomSport(result.getString(2));
+                sport.setPk_sport(result.getInt(1));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            CloseDB();
+        }
+        return sport;
+    }
+
 
 
 
