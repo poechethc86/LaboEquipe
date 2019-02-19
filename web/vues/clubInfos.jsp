@@ -14,7 +14,7 @@
             <tr>
                 <th>Membres</th>
 
-                <th>Desinscription</th>
+                <th>D&eacute;sinscription</th>
             </tr>
             </thead>
             <tbody>
@@ -26,7 +26,7 @@
                         <form action="unsubscribe-membre" method="post">
                             <input type="hidden" name="clubId" value="${id}">
                             <input type="hidden" name="memberId" value="${membre.pk_membre}">
-                            <input type="submit" class="btn btn-primary" value="Désinscription">
+                            <input type="submit" class="btn btn-primary" value="D&eacute;sinscription">
                         </form>
                     </td>
                 </tr>

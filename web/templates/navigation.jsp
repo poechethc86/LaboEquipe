@@ -14,10 +14,10 @@
             <li class="nav-item">
                 <c:choose>
                     <c:when test="${nav == 0 or nav == null}">
-                        <a href="Login"class="nav-link active" >Login</a>
+                        <a href="Login" class="nav-link active" >Login</a>
                     </c:when>
                     <c:otherwise>
-                        <a href="Logout"class="nav-link">${nom} Logout</a>
+                        <a href="Logout" class="nav-link">${nom} Logout</a>
                     </c:otherwise>
                 </c:choose>
             </li>

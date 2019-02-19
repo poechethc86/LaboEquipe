@@ -33,7 +33,7 @@
 
             <div class="form-inline">
                 <div class="form-group">
-                    <label for="clubName">Nom du club:  </label>
+                    <label for="clubNames">Nom du club:  </label>
                     <input type="text" class="form-control" id="clubNames" name="clubName">
 
                 </div>

@@ -15,12 +15,13 @@
             <tr>
                 <th>Clubs</th>
                 <th>Nombre de membres</th>
+                <th>D&eacute;sinscription</th>
             </tr>
             </thead>
             <tbody>
             <c:forEach items="${club}" var="club">
                 <tr>
-                    <td>${club.nom}</td> <td>${club.memberCount}</td>
+                    <td>${club.nom}</td> <td>${club.memberCount}</td><td><input type="submit" class="btn btn-primary" value="D&eacute;sinscription"></td>
                 </tr>
             </c:forEach>
             </tbody>
