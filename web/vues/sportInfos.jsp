@@ -9,19 +9,18 @@
 <div class="row">
     <div class="col-sm-2"></div>
     <div class="col-sm-8">
-        <h1>Clubs de</h1>
+        <h1>${nom}</h1>
         <table class="table table-striped" style="text-align:center">
             <thead>
             <tr>
                 <th>Clubs</th>
                 <th>Nombre de membres</th>
-                <th>D&eacute;sinscription</th>
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${club}" var="club">
+            <c:forEach items="${clubs}" var="club">
                 <tr>
-                    <td>${club.nom}</td> <td>${club.memberCount}</td><td><input type="submit" class="btn btn-primary" value="D&eacute;sinscription"></td>
+                    <td>${club.nom}</td> <td>${club.memberCount}</td>
                 </tr>
             </c:forEach>
             </tbody>
