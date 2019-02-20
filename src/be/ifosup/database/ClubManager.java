@@ -190,12 +190,14 @@ public class ClubManager extends DBManager {
         ArrayList<Club> listclub = new ArrayList<Club>();
         try {
             ConnectDB();
-            preparedStatement = connection.prepareStatement("SELECT t_clubs.Nom_Club FROM t_sports INNER JOIN t_clubs ON t_sports.PK_Sport = t_clubs.FK_Sport  WHERE t_sports.PK_Sport=?");
+            preparedStatement = connection.prepareStatement("SELECT t_clubs.Nom_Club, Count(ti_membres_clubs.FK_Membres) AS CompteDeFK_Membres, t_clubs.PK_Club FROM t_sports INNER JOIN (t_membres INNER JOIN (t_clubs INNER JOIN ti_membres_clubs ON t_clubs.PK_Club = ti_membres_clubs.FK_Clubs) ON t_membres.PK_Membres = ti_membres_clubs.FK_Membres) ON t_sports.PK_Sport = t_clubs.FK_Sport WHERE (((t_sports.PK_Sport)=?)) GROUP BY t_clubs.Nom_Club, t_sports.Nom_Sport, t_clubs.PK_Club");
             preparedStatement.setInt(1,sport.getPk_sport());
             result = preparedStatement.executeQuery();
 
             while (result.next()){
                 Club club = new Club(result.getString(1));
+                club.setMemberCount(result.getInt(2));
+                club.setPk_club(result.getInt(3));
                 listclub.add(club);
             }
 
@@ -229,34 +231,6 @@ public class ClubManager extends DBManager {
             CloseDB();
         }
         return club;
-    }
-
-
-    public List<Club> DisplayClubsandcount(Sport sport) {
-        ArrayList<Club> listclub = new ArrayList<Club>();
-        try {
-            ConnectDB();
-            preparedStatement = connection.prepareStatement("SELECT t_clubs.Nom_Club, Count(ti_membres_clubs.FK_Membres) AS CompteDeFK_Membres\n" +
-                    "FROM (t_sports INNER JOIN t_clubs ON t_sports.PK_Sport = t_clubs.FK_Sport) INNER JOIN ti_membres_clubs ON t_clubs.PK_Club = ti_membres_clubs.FK_Clubs\n" +
-                    "GROUP BY t_clubs.Nom_Club, t_sports.PK_Sport\n" +
-                    "HAVING (((t_sports.PK_Sport)=?));");
-            preparedStatement.setInt(1,sport.getPk_sport());
-            result = preparedStatement.executeQuery();
-
-            while (result.next()){
-                Club club = new Club(result.getString(1));
-                club.setMemberCount(result.getInt(2));
-                listclub.add(club);
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            CloseDB();
-        }
-
-        return listclub;
-
     }
 
 }
