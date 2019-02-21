@@ -14,11 +14,13 @@ import java.io.IOException;
 public class ServletUpdateMember extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
-        Membre membre = new Membre(Integer.parseInt(request.getParameter("id")));
-        membre.setPrenom(request.getParameter("firstname"));
-        membre.setNom(request.getParameter("lastname"));
-        MemberManager.Instance().UpdateMember(membre);
-        response.sendRedirect("profileMember?id="+membre.getPk_membre());
+        if(!request.getParameter("firstname").equals("") && !request.getParameter("lastname").equals("")) {
+            Membre membre = new Membre(Integer.parseInt(request.getParameter("id")));
+            membre.setPrenom(request.getParameter("firstname"));
+            membre.setNom(request.getParameter("lastname"));
+            MemberManager.Instance().UpdateMember(membre);
+        }
+        response.sendRedirect("profileMember?id="+request.getParameter("id"));
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

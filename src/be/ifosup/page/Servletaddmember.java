@@ -18,10 +18,13 @@ import java.lang.reflect.Member;
 public class Servletaddmember extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
-        Membre newmembre = new Membre(request.getParameter("nom"),request.getParameter("prenom"));
-        newmembre.setPassword(MD5Manager.Instance().hash(request.getParameter("pass")));
-        newmembre.setUser(newmembre.getPrenom().substring(0,1).toLowerCase() + newmembre.getNom().toLowerCase());
-        MemberManager.Instance().AddMember(newmembre);
+
+        if(!request.getParameter("nom").equals("") && !request.getParameter("prenom").equals("") && !request.getParameter("pass").equals("")) {
+            Membre newmembre = new Membre(request.getParameter("nom"), request.getParameter("prenom"));
+            newmembre.setPassword(MD5Manager.Instance().hash(request.getParameter("pass")));
+            newmembre.setUser(newmembre.getPrenom().substring(0, 1).toLowerCase() + newmembre.getNom().toLowerCase());
+            MemberManager.Instance().AddMember(newmembre);
+        }
         response.sendRedirect("homepage");
 
     }

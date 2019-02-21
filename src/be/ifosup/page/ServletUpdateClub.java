@@ -14,12 +14,14 @@ import java.io.IOException;
 public class ServletUpdateClub extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
-        Club club = new Club(Integer.parseInt(request.getParameter("id")));
-        club.setNom(request.getParameter("nom"));
-        club.setPkSport(Integer.parseInt(request.getParameter("sportId")));
-        ClubManager.Instance().UpdateClub(club);
+        if(!request.getParameter("nom").equals("")) {
+            Club club = new Club(Integer.parseInt(request.getParameter("id")));
+            club.setNom(request.getParameter("nom"));
+            club.setPkSport(Integer.parseInt(request.getParameter("sportId")));
+            ClubManager.Instance().UpdateClub(club);
+        }
 
-        response.sendRedirect("infoclub?id=" + club.getPk_club());
+        response.sendRedirect("infoclub?id=" + request.getParameter("id"));
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

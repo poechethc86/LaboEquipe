@@ -17,9 +17,11 @@ public class Servletaddclub extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         request.setCharacterEncoding("UTF-8");
-        Club club = new Club(request.getParameter("clubName"),request.getParameter("sportName"),Integer.parseInt(request.getParameter("sportId")));
-
-        ClubManager.Instance().AddClub(club);
+        if (!request.getParameter("clubName").equals("")) {
+            Club club = new Club(request.getParameter("clubName"));
+            club.setPkSport(Integer.parseInt(request.getParameter("sportId")));
+            ClubManager.Instance().AddClub(club);
+        }
         response.sendRedirect("homepage");
     }
 
