@@ -20,7 +20,7 @@ public class ServletLogin extends HttpServlet {
 
         // test avec la méthode de validation
         if(MemberManager.Instance().CheckPassword(nom,pass)) {
-            request.getSession().setAttribute("nom", nom);
+            request.getSession().setAttribute("user", nom);
             request.getSession().setAttribute("nav", 1);//gestion nav
 
             response.sendRedirect("homepage");

@@ -15,7 +15,7 @@ public class LoginRequestFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
-        if(request.getSession().getAttribute("nom") != null) {
+        if(request.getSession().getAttribute("user") != null) {
             filterChain.doFilter(servletRequest, servletResponse);
         } else {
             request.getRequestDispatcher("login").forward(servletRequest, servletResponse);

@@ -17,7 +17,7 @@
                         <a href="Login" class="nav-link active" >Login</a>
                     </c:when>
                     <c:otherwise>
-                        <a href="Logout" class="nav-link">${nom} Logout</a>
+                        <a href="Logout" class="nav-link">${user} Logout</a>
                     </c:otherwise>
                 </c:choose>
             </li>
