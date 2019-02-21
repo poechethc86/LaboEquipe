@@ -25,7 +25,7 @@
                     <td>
                         <form action="delete-club" method="post">
                             <input type="hidden" name="clubId" value="${club.pk_club}">
-                            <input type="submit" class="btn btn-primary" value="suppression club">
+                            <input type="submit" class="btn btn-primary" value="suppression club" alt="ton titre2" title="tous les membres du club vont etre retir&eacute;s du club avant suppression" >
                          </form>
                     </td>
                 </tr>
