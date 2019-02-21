@@ -78,18 +78,13 @@ public class ClubManager extends DBManager {
         try {
             ConnectDB();
 
-            preparedStatement = connection.prepareStatement("SELECT t_sports.PK_Sport FROM t_sports WHERE t_sports.Nom_Sport=?");
-            preparedStatement.setString(1, club.getSport());
-            result = preparedStatement.executeQuery();
-            result.next();
-            int pksport = result.getInt(1);
 
-
-            preparedStatement = connection.prepareStatement("UPDATE t_clubs SET Nom_club =? FK_Sport = ? WHERE PK_Club = ? ");
+            preparedStatement = connection.prepareStatement("UPDATE t_clubs SET Nom_Club = ?, FK_Sport = ? WHERE PK_Club = ? ");
 
             preparedStatement.setString(1, club.getNom());
-            preparedStatement.setInt(2,pksport);
-            result = preparedStatement.executeQuery();
+            preparedStatement.setInt(2,club.getPksport());
+            preparedStatement.setInt(3,club.getPk_club());
+            preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
             e.printStackTrace();
