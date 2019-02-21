@@ -23,6 +23,7 @@ public class Servletinfosport extends HttpServlet {
         Sport sport = SportManager.Instance().GetSport(Integer.parseInt(request.getParameter("id")));
         request.setAttribute("nom",sport.getNomSport());
         request.setAttribute("clubs", ClubManager.Instance().DisplayClubs(sport));
+        request.setAttribute("id",request.getParameter("id"));
 
 
         request.getRequestDispatcher("/vues/sportInfos.jsp").forward(request,response);

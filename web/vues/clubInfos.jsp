@@ -31,6 +31,13 @@
                     </td>
                 </tr>
             </c:forEach>
+
+            <form action="delete-clubs" method="post">
+
+                <input type="hidden" name="clubId" value="${id}">
+                <input type="submit" class="btn btn-primary" value="suppression club" alt="ton titre2" title="tous les membres du club vont etre retir&eacute;s du club avant suppression" >
+            </form>
+
             </tbody>
         </table>
     </div>
