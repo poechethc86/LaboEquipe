@@ -13,6 +13,7 @@ import java.io.IOException;
 @WebServlet(name = "ServletUpdateClub",urlPatterns = "/update-club")
 public class ServletUpdateClub extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         Club club = new Club(Integer.parseInt(request.getParameter("id")));
         club.setNom(request.getParameter("nom"));
         club.setPkSport(Integer.parseInt(request.getParameter("sportId")));
