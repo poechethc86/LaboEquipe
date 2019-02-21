@@ -89,11 +89,11 @@ public class MemberManager extends DBManager {
 
             preparedStatement = connection.prepareStatement("DELETE FROM ti_membres_clubs WHERE ti_membres_clubs.FK_Membres=?");
             preparedStatement.setInt(1,member.getPk_membre());
-            result = preparedStatement.executeQuery();
+            preparedStatement.executeUpdate();
 
             preparedStatement = connection.prepareStatement("Delete FROM `t_membres` WHERE `PK_Membres`= ?");
             preparedStatement.setInt(1,member.getPk_membre());
-            result = preparedStatement.executeQuery();
+            preparedStatement.executeUpdate();
 
 
         } catch (SQLException e) {

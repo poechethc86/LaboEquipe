@@ -134,6 +134,10 @@
                     <!--<td>${membre.nom}</td>
                     <td>${membre.prenom}</td>
                     <td><a href="profileMember?id=${membre.pk_membre}">Profil</a></td>-->
+                    <td><form action="delete-member" method="post">
+                        <input type="hidden" name="memberId" value="${membre.pk_membre}">
+                        <input type="submit" class="btn btn-primary" value="suppression membre" >
+                    </form></td>
                 </tr>
             </c:forEach>
             </tbody>

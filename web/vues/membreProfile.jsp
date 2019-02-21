@@ -32,6 +32,13 @@
             <br><br>
             <input type="hidden" name="id" value="${id}">
             <input type="submit" class="btn btn-primary" value="Éditer">
+
+
+
+        </form>
+        <form action="delete-member" method="post">
+            <input type="hidden" name="memberId" value="${id}">
+            <input type="submit" class="btn btn-primary" value="suppression membre" >
         </form>
     </div>
     <div class="col-sm-2"></div>
