@@ -20,35 +20,18 @@ public class Servletaddsport extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        request.setCharacterEncoding("UTF-8");
+        if(!request.getParameter("sportName").equals("")) {
 
-
-        String value = request.getParameter("sportName");
-
-        if (value == null) {
-            System.out.println("present");
-
-        } else if ("".equals(value)) {
-            System.out.println("vide");
-        }else{
-            System.out.println("aucun des deux ");
+            request.setCharacterEncoding("UTF-8");
+            Sport sport = new Sport(request.getParameter("sportName"));
+            SportManager.Instance().AddSport(sport);
+        }
+        else {
+            JOptionPane.showMessageDialog(null,"Le champ ne peut pas être vide","Inane error", JOptionPane.ERROR_MESSAGE);
         }
 
-        /*request.getParameter("sportName");*/
-        request.setCharacterEncoding("UTF-8");
-        Sport sport = new Sport(request.getParameter("sportName"));
-        SportManager.Instance().AddSport(sport);
-
-
-
-           /* JOptionPane.showMessageDialog(null,"Le champ ne peut pas être vide","Inane error", JOptionPane.ERROR_MESSAGE);*/
-
-
-
-
         response.sendRedirect("homepage");
-
-
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
