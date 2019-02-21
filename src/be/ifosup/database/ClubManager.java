@@ -51,16 +51,16 @@ public class ClubManager extends DBManager {
         boolean noError = true;
         try {
             ConnectDB();
-
-
+            System.out.println("test here : ");
+            System.out.println(club.getPk_club());
             preparedStatement = connection.prepareStatement("DELETE FROM ti_membres_clubs WHERE ti_membres_clubs.FK_Clubs=?;");
             preparedStatement.setInt(1, club.getPk_club());
-            result = preparedStatement.executeQuery();
+            preparedStatement.executeUpdate();
 
 
             preparedStatement = connection.prepareStatement("DELETE FROM t_clubs WHERE t_clubs.PK_Club=?");
             preparedStatement.setInt(1, club.getPk_club());
-            result = preparedStatement.executeQuery();
+            preparedStatement.executeUpdate();
 
 
         } catch (SQLException e) {

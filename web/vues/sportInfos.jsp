@@ -21,6 +21,13 @@
             <c:forEach items="${clubs}" var="club">
                 <tr>
                     <td><a href="infoclub?id=${club.pk_club}">${club.nom}</a></td> <td>${club.memberCount}</td>
+
+                    <td>
+                        <form action="delete-club" method="post">
+                            <input type="hidden" name="clubId" value="${club.pk_club}">
+                            <input type="submit" class="btn btn-primary" value="suppression club">
+                         </form>
+                    </td>
                 </tr>
             </c:forEach>
             </tbody>
