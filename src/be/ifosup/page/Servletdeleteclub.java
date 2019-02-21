@@ -18,7 +18,7 @@ public class Servletdeleteclub extends HttpServlet {
         Club club = new Club(Integer.parseInt(request.getParameter("clubId")));
         ClubManager.Instance().RemoveClub(club);
 
-        response.sendRedirect("infosport?id="+Integer.parseInt(request.getParameter("sportId")));
+        response.sendRedirect(request.getParameter("redirectLink"));
 
     }
 
