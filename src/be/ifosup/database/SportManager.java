@@ -77,7 +77,7 @@ public class SportManager extends DBManager {
 
             preparedStatement.setString(1, sport.getNomSport());
             preparedStatement.setInt(2,sport.getPk_sport());
-            result = preparedStatement.executeQuery();
+            preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
             e.printStackTrace();
