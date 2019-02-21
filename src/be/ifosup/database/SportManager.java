@@ -53,7 +53,7 @@ public class SportManager extends DBManager {
 
             preparedStatement = connection.prepareStatement("Delete FROM `t_sports` WHERE `PK_Sport`= ? ");
             preparedStatement.setInt(1, sport.getPk_sport());
-            result = preparedStatement.executeQuery();
+            preparedStatement.executeUpdate();
 
 
         } catch (SQLException e) {

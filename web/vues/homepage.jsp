@@ -19,6 +19,11 @@
                     <!-- <td>${club.nom}</td> <td>${club.sport}</td><td>${club.memberCount}</td> -->
 
                     <td><a href="infoclub?id=${club.pk_club}">${club.nom}</a></td> <td>${club.sport}</td><td>${club.memberCount}</td>
+                    <td><form action="delete-clubs" method="post">
+
+                        <input type="hidden" name="clubId" value="${club.pk_club}">
+                        <input type="submit" class="btn btn-primary" value="suppression club" alt="ton titre2" title="tous les membres du club vont etre retir&eacute;s du club avant suppression" >
+                    </form></td>
                 </tr>
             </c:forEach>
             </tbody>
@@ -44,7 +49,10 @@
             <div class="form-group">
                 <select name="sportId" class="form-control" id="sel1">
                     <c:forEach items="${sports}" var="sport">
+
                         <option value="${sport.pk_sport}">${sport.nomSport}</option>
+
+
                     </c:forEach>
                 </select>
             </div>
@@ -77,6 +85,11 @@
             <c:forEach items="${sports}" var="sport">
                 <tr>
                     <td><a href="infosport?id=${sport.pk_sport}">${sport.nomSport}</a></td>
+                    <td><form action="delsport" method="post">
+
+                        <input type="hidden" name="sportId" value="${sport.pk_sport}">
+                        <input type="submit" class="btn btn-primary" value="suppression"  >
+                    </form></td>
                     <!-- <td>${sport.nomSport}</td> -->
                 </tr>
             </c:forEach>
