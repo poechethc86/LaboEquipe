@@ -2,6 +2,7 @@ package be.ifosup.page;
 
 import be.ifosup.database.ClubManager;
 import be.ifosup.database.MemberManager;
+import be.ifosup.database.SportManager;
 import be.ifosup.entities.Club;
 
 import javax.servlet.ServletException;
@@ -22,8 +23,10 @@ public class Servletinfoclub extends HttpServlet {
         Club club = ClubManager.Instance().GetClub(Integer.parseInt(request.getParameter("id")));
         request.setAttribute("nom",club.getNom());
         request.setAttribute("sport",club.getSport());
+        request.setAttribute("sportId",club.getPksport());
         request.setAttribute("id",request.getParameter("id"));
         request.setAttribute("membres",MemberManager.Instance().DisplayMembers(club));
+        request.setAttribute("sports", SportManager.Instance().DisplaySports());
 
         request.getRequestDispatcher("/vues/clubInfos.jsp").forward(request,response);
 

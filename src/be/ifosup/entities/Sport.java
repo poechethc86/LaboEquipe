@@ -39,7 +39,6 @@ public class Sport {
     @Override
     public String toString() {
         return "Sport{" +
-                "pkSport='" + pk_sport + '\'' +
                 ", nomSport='" + nomSport + '\'' +
                 ", pk_sport='" + pk_sport + '\'' +
                 '}';

@@ -64,6 +64,14 @@ public class Club {
         this.memberCount = memberCount;
     }
 
+    public int getPksport() {
+        return pksport;
+    }
+
+    public void setPksport(int pksport) {
+        this.pksport = pksport;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -84,6 +92,7 @@ public class Club {
         return "Club{" +
                 "nom='" + nom + '\'' +
                 ", sport='" + sport + '\'' +
+                ", pksport='" + pksport + '\'' +
                 ", pk_club='" + pk_club + '\'' +
                 ", memberCount='" + memberCount + '\'' +
                 '}';
