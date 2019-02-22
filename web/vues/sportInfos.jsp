@@ -9,6 +9,8 @@
 <div class="row">
     <div class="col-sm-2"></div>
     <div class="col-sm-8">
+
+        <h1>${nom}</h1>
         <form action="update-sport" method="post">
             Nom:<br>
             <input type="text" name="nom" value="${nom}">
@@ -17,8 +19,6 @@
             <input type="submit" class="btn btn-primary" value="Éditer">
         </form>
 
-
-        <h1>${nom}</h1>
         <table class="table table-striped" style="text-align:center">
             <thead>
             <tr>
