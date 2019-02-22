@@ -1,8 +1,8 @@
 package be.ifosup.page;
 
 import be.ifosup.database.ClubManager;
+import be.ifosup.database.MemberManager;
 import be.ifosup.database.SportManager;
-import be.ifosup.entities.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,9 +13,6 @@ import java.io.IOException;
 
 @WebServlet(name = "ServletHomepage", urlPatterns = {"/homepage"})
 public class ServletHomepage extends HttpServlet {
-    private MembreService membreService = new MembreService();
-    private ClubService clubService = new ClubService();
-    private SportService sportService = new SportService();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -25,9 +22,9 @@ public class ServletHomepage extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("membres",membreService.recupereMembre());
-        request.setAttribute("clubs",clubService.recupereClub());
-        request.setAttribute("sports",sportService.recupereSport());
+        request.setAttribute("membres", MemberManager.Instance().DisplayMembers());
+        request.setAttribute("clubs",ClubManager.Instance().DisplayClubs());
+        request.setAttribute("sports",SportManager.Instance().DisplaySports());
         request.getRequestDispatcher("/vues/homepage.jsp").forward(request,response);
 
     }
