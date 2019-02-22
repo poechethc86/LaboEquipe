@@ -20,7 +20,7 @@ public class Servletdelmember extends HttpServlet {
         Membre membre = MemberManager.Instance().GetMember(Integer.parseInt(request.getParameter("memberId")));
         MemberManager.Instance().RemoveMember(membre);
 
-        response.sendRedirect("/homepage");
+        response.sendRedirect("homepage");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -17,7 +17,7 @@ public class Servletdelsport extends HttpServlet {
         Sport sport = new Sport(Integer.parseInt(request.getParameter("sportId")));
         SportManager.Instance().RemoveSport(sport);
 
-        response.sendRedirect("/homepage");
+        response.sendRedirect("homepage");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
