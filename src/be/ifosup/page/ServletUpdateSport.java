@@ -13,11 +13,13 @@ import java.io.IOException;
 @WebServlet(name = "ServletUpdateSport",urlPatterns = "/update-sport")
 public class ServletUpdateSport extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Sport sport = new Sport(Integer.parseInt(request.getParameter("id")));
-        sport.setNomSport(request.getParameter("nom"));
+        request.setCharacterEncoding("UTF-8");
+        if(!request.getParameter("nom").equals("")) {
+            Sport sport = new Sport(Integer.parseInt(request.getParameter("id")));
+            sport.setNomSport(request.getParameter("nom"));
 
-        SportManager.Instance().UpdateSport(sport);
-
+            SportManager.Instance().UpdateSport(sport);
+        }
         response.sendRedirect("infosport?id=" + request.getParameter("id"));
 
     }

@@ -31,7 +31,7 @@ public class ClubManager extends DBManager {
 
             preparedStatement = connection.prepareStatement("INSERT INTO t_clubs(Nom_Club,FK_Sport) VALUES (?, ?)");
             preparedStatement.setString(1, club.getNom());
-            preparedStatement.setInt(2, club.getPk_club());
+            preparedStatement.setInt(2, club.getPksport());
 
 
             preparedStatement.executeUpdate();
