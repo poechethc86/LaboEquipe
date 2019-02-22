@@ -28,7 +28,7 @@ public class Servletaddsport extends HttpServlet {
             SportManager.Instance().AddSport(sport);
         }
         else {
-            JOptionPane.showMessageDialog(null,"Le champ ne peut pas être vide","Inane error", JOptionPane.ERROR_MESSAGE);
+            /*JOptionPane.showMessageDialog(null,"Le champ ne peut pas être vide","Inane error", JOptionPane.ERROR_MESSAGE);*/
         }
 
         response.sendRedirect("homepage");

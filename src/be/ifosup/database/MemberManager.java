@@ -244,10 +244,26 @@ public class MemberManager extends DBManager {
     }
 
 
+    public Membre GetUser (int pk_membre) {
+        Membre membre = new Membre(pk_membre);
+        try {
+            ConnectDB();
+            preparedStatement = connection.prepareStatement("SELECT t_membres.User_Membres, t_membres.Prenom_Membres FROM t_membres WHERE `PK_Membres` = ?");
+            preparedStatement.setInt(1, pk_membre);
+            result = preparedStatement.executeQuery();
+            if (result.next()) {
+                membre.setUser(result.getString(1));
+                membre.setPrenom(result.getString(2));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            CloseDB();
+        }
+        return membre;
 
 
-
-
+    }
 }
 
 

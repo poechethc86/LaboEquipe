@@ -38,6 +38,7 @@
         </form>
         <form action="delete-member" method="post">
             <input type="hidden" name="memberId" value="${id}">
+            <input type="hidden" name="memberUser" value="${membre.user}">
             <input type="submit" class="btn btn-primary" value="suppression membre" >
         </form>
     </div>
