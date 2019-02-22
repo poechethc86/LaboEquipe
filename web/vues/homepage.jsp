@@ -20,9 +20,10 @@
                     <!-- <td>${club.nom}</td> <td>${club.sport}</td><td>${club.memberCount}</td> -->
 
                     <td><a href="infoclub?id=${club.pk_club}">${club.nom}</a></td> <td>${club.sport}</td><td>${club.memberCount}</td>
-                    <td><form action="delete-clubs" method="post">
+                    <td><form action="delete-club" method="post">
 
                         <input type="hidden" name="clubId" value="${club.pk_club}">
+                        <input type="hidden" name="redirectLink" value="homepage">
                         <input type="submit" class="btn btn-primary" value="suppression club" alt="ton titre2" title="tous les membres du club vont etre retir&eacute;s du club avant suppression" >
                     </form></td>
                 </tr>
