@@ -11,6 +11,7 @@
                 <th>Clubs</th>
                 <th>Sports</th>
                 <th>Membres</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -79,6 +80,7 @@
             <thead>
             <tr>
                 <th>Sport</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -136,8 +138,7 @@
             <thead>
             <tr>
                 <th>Nom</th>
-                <!--<th>Prenom</th>
-                <th>Profil</th>-->
+                <th></th>
             </tr>
             </thead>
             <tbody>
