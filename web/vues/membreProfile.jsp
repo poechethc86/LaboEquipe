@@ -21,7 +21,7 @@
 </div>
 <div class="row" style="margin-top:100px">
     <div class="col-sm-2"></div>
-    <div class="col-sm-5"><img src="default.jpg" class="img-thumbnail" alt="image par défaut" width=50%></div>
+    <div class="col-sm-5"><img src="vues/default.jpg" class="img-thumbnail" alt="image par défaut" width=50%></div>
     <div class="col-sm-3">
         <form action="update-member" method="post">
             Prenom:<br>
