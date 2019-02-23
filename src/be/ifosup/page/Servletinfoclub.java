@@ -26,6 +26,7 @@ public class Servletinfoclub extends HttpServlet {
         request.setAttribute("sportId",club.getPksport());
         request.setAttribute("id",request.getParameter("id"));
         request.setAttribute("membres",MemberManager.Instance().DisplayMembers(club));
+        request.setAttribute("memberstosub",MemberManager.Instance().DisplayMembersToSubscribe(club));
         request.setAttribute("sports", SportManager.Instance().DisplaySports());
 
         request.getRequestDispatcher("/vues/clubInfos.jsp").forward(request,response);

@@ -67,6 +67,7 @@
                         <form action="unsubscribe-club" method="post">
                             <input type="hidden" name="clubId" value="${club.pk_club}">
                             <input type="hidden" name="memberId" value="${id}">
+                            <input type="hidden" name="redirectLink" value="profileMember?id=${id}">
                             <input type="submit" class="btn btn-primary" value="Désinscription">
                         </form>
                     </td>
@@ -94,6 +95,7 @@
             </select>
 
             <input type="hidden" name="memberId" value="${id}">
+            <input type="hidden" name="redirectLink" value="profileMember?id=${id}">
             <input type="submit" class="btn btn-primary" value="Inscription">
         </div>
         <div class="col-sm-4"></div>
