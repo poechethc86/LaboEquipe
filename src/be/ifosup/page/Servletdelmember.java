@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.*;
 import java.io.IOException;
 import java.lang.reflect.Member;
 
@@ -20,7 +21,14 @@ public class Servletdelmember extends HttpServlet {
         Membre membre = MemberManager.Instance().GetMember(Integer.parseInt(request.getParameter("memberId")));
         if (!request.getSession().getAttribute("user").equals(request.getParameter("usernameToDelete"))) {
             MemberManager.Instance().RemoveMember(membre);
+        }else{
+            JOptionPane pane = new JOptionPane("autosuppression interdite", JOptionPane.ERROR_MESSAGE);
+            JDialog dialog = pane.createDialog(null,"erreur");
+            dialog.setAlwaysOnTop(true);
+            dialog.setVisible(true);
+            dialog.dispose();
         }
+
         response.sendRedirect("homepage");
     }
 
