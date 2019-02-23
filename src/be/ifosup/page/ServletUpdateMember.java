@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.*;
 import java.io.IOException;
 
 @WebServlet(name = "ServletUpdateMember", urlPatterns = {"/update-member"})
@@ -19,6 +20,12 @@ public class ServletUpdateMember extends HttpServlet {
             membre.setPrenom(request.getParameter("firstname"));
             membre.setNom(request.getParameter("lastname"));
             MemberManager.Instance().UpdateMember(membre);
+        }else{
+            JOptionPane pane = new JOptionPane("Veuillez completer le champ", JOptionPane.ERROR_MESSAGE);
+            JDialog dialog = pane.createDialog(null,"erreur");
+            dialog.setAlwaysOnTop(true);
+            dialog.setVisible(true);
+            dialog.dispose();
         }
         response.sendRedirect("profileMember?id="+request.getParameter("id"));
     }

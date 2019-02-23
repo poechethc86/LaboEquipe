@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.*;
 import java.io.IOException;
 import java.lang.reflect.Member;
 
@@ -24,6 +25,13 @@ public class Servletaddmember extends HttpServlet {
             newmembre.setPassword(MD5Manager.Instance().hash(request.getParameter("pass")));
             newmembre.setUser(newmembre.getPrenom().substring(0, 1).toLowerCase() + newmembre.getNom().toLowerCase());
             MemberManager.Instance().AddMember(newmembre);
+        }else{
+            JOptionPane pane = new JOptionPane("Veuillez completer le(s) champ(s)", JOptionPane.ERROR_MESSAGE);
+            JDialog dialog = pane.createDialog(null,"error");
+            dialog.setAlwaysOnTop(true);
+            dialog.setVisible(true);
+            dialog.dispose();
+
         }
         response.sendRedirect("homepage");
 
