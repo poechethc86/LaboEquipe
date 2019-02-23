@@ -82,22 +82,31 @@
         <h1>Inscription</h1>
     </div>
 </div>
-<form action="subscribe-club" method="post">
-<div class="row" style="margin-top:50px">
-    <div class="col-sm-5"></div>
-    <div class="col-sm-3">
-        <select name="clubId">
-            <c:forEach items="${clubstosub}" var="club">
-                <option value="${club.pk_club}">${club.nom}</option>
-            </c:forEach>
-        </select>
+<c:if test="${!empty clubstosub}">
+    <form action="subscribe-club" method="post">
+    <div class="row" style="margin-top:50px">
+        <div class="col-sm-5"></div>
+        <div class="col-sm-3">
+            <select name="clubId">
+                <c:forEach items="${clubstosub}" var="club">
+                    <option value="${club.pk_club}">${club.nom}</option>
+                </c:forEach>
+            </select>
 
-        <input type="hidden" name="memberId" value="${id}">
-        <input type="submit" class="btn btn-primary" value="Inscription">
+            <input type="hidden" name="memberId" value="${id}">
+            <input type="submit" class="btn btn-primary" value="Inscription">
+        </div>
+        <div class="col-sm-4"></div>
     </div>
-    <div class="col-sm-4"></div>
-</div>
-</form>
+    </form>
+</c:if>
+<c:if test="${empty clubstosub}">
+    <div class="row" style="margin-top:50px">
+        <div class="col-sm-5"></div>
+        <div class="col-sm-3">Aucune inscription disponible</div>
+        <div class="col-sm-4"></div>
+    </div>
+</c:if>
 <div class="row"style="margin-top:150px"></div>
 <%@include file="../templates/footer.jsp"%>
 
