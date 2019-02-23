@@ -53,7 +53,7 @@
             <tr>
                 <th>Clubs</th>
                 <th>Sports</th>
-                <!--<th>Nombre de membres</th>-->
+
                 <th>Désinscription</th>
             </tr>
             </thead>
@@ -62,7 +62,7 @@
                 <tr>
                     <td>${club.nom}</td>
                     <td>${club.sport}</td>
-                    <!--<td>${club.memberCount}</td>-->
+
                     <td>
                         <form action="unsubscribe-club" method="post">
                             <input type="hidden" name="clubId" value="${club.pk_club}">
