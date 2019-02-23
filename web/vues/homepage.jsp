@@ -91,7 +91,7 @@
                     <td><form action="delsport" method="post">
 
                         <input type="hidden" name="sportId" value="${sport.pk_sport}">
-                        <input type="submit" class="btn btn-primary" value="suppression"  >
+                        <input type="submit" class="btn btn-primary" value="suppression" alt="ton titre2" title="tous les membres du sport vont etre retir&eacute;s des clubs affiliés avant suppression" >
                     </form></td>
                     <!-- <td>${sport.nomSport}</td> -->
                 </tr>

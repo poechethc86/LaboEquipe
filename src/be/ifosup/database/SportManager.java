@@ -4,6 +4,7 @@ import be.ifosup.entities.Club;
 import be.ifosup.entities.Membre;
 import be.ifosup.entities.Sport;
 
+import javax.swing.*;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -44,25 +45,45 @@ public class SportManager extends DBManager {
     public boolean RemoveSport(Sport sport){  // /!\ controle displaysport puis displayclub before
 
         boolean noError = true;
-        try {
-            ConnectDB();
+
+
+
+            try {
+                ConnectDB();
+
+
+                preparedStatement=connection.prepareStatement("SELECT t_clubs.FK_Sport FROM t_clubs WHERE t_clubs.FK_Sport=?");
+                preparedStatement.setInt(1, sport.getPk_sport());
+                result = preparedStatement.executeQuery();
+
+                if(result.next()) {
+                    JOptionPane pane = new JOptionPane("le sport est affilié a un club impossible de le supprimer", JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = pane.createDialog(null,"error");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);
+                    dialog.dispose();
+
+                }else{
+
+                preparedStatement = connection.prepareStatement("Delete FROM `t_sports` WHERE `PK_Sport`= ? ");
+                preparedStatement.setInt(1, sport.getPk_sport());
+                preparedStatement.executeUpdate();}
+
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+                noError = false;
+            } finally {
+                CloseDB();
+            }
 
 
 
 
-            preparedStatement = connection.prepareStatement("Delete FROM `t_sports` WHERE `PK_Sport`= ? ");
-            preparedStatement.setInt(1, sport.getPk_sport());
-            preparedStatement.executeUpdate();
 
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-            noError = false;
-        } finally {
-            CloseDB();
-        }
         return noError;
-    }// /!\ check ManageClub.DisplayClubs(Sport sport) must be empty
+    }
 
     public boolean UpdateSport(Sport sport){
         boolean noError = true;
