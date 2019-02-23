@@ -24,6 +24,7 @@
             <tr>
                 <th>Clubs</th>
                 <th>Nombre de membres</th>
+                <th>Suppression</th>
             </tr>
             </thead>
             <tbody>
