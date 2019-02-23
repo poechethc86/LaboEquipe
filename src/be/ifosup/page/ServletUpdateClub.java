@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.*;
 import java.io.IOException;
 
 @WebServlet(name = "ServletUpdateClub",urlPatterns = "/update-club")
@@ -19,6 +20,12 @@ public class ServletUpdateClub extends HttpServlet {
             club.setNom(request.getParameter("nom"));
             club.setPkSport(Integer.parseInt(request.getParameter("sportId")));
             ClubManager.Instance().UpdateClub(club);
+        }else{
+            JOptionPane pane = new JOptionPane("Veuillez completer le champ", JOptionPane.ERROR_MESSAGE);
+            JDialog dialog = pane.createDialog(null,"erreur");
+            dialog.setAlwaysOnTop(true);
+            dialog.setVisible(true);
+            dialog.dispose();
         }
 
         response.sendRedirect("infoclub?id=" + request.getParameter("id"));

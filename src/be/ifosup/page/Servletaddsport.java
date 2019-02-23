@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.*;
 import java.io.IOException;
 
 @WebServlet(name = "Servletaddsport" , urlPatterns = {"/add-sport"})
@@ -22,7 +23,17 @@ public class Servletaddsport extends HttpServlet {
             request.setCharacterEncoding("UTF-8");
             Sport sport = new Sport(request.getParameter("sportName"));
             SportManager.Instance().AddSport(sport);
+        }else{
+
+            JOptionPane pane = new JOptionPane("Veuillez completer le champ", JOptionPane.INFORMATION_MESSAGE);
+            JDialog dialog = pane.createDialog(null,"titre");
+            dialog.setAlwaysOnTop(true);
+            dialog.setVisible(true);
+            dialog.dispose();
+
+
         }
+
 
         response.sendRedirect("homepage");
     }
