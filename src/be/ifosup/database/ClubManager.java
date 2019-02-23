@@ -182,7 +182,7 @@ public class ClubManager extends DBManager {
         ArrayList<Club> listclub = new ArrayList<Club>();
         try {
             ConnectDB();
-            preparedStatement = connection.prepareStatement("SELECT t_clubs.Nom_Club, Count(ti_membres_clubs.FK_Membres) AS CompteDeFK_Membres, t_clubs.PK_Club FROM t_sports INNER JOIN (t_membres INNER JOIN (t_clubs INNER JOIN ti_membres_clubs ON t_clubs.PK_Club = ti_membres_clubs.FK_Clubs) ON t_membres.PK_Membres = ti_membres_clubs.FK_Membres) ON t_sports.PK_Sport = t_clubs.FK_Sport WHERE (((t_sports.PK_Sport)=?)) GROUP BY t_clubs.Nom_Club, t_sports.Nom_Sport, t_clubs.PK_Club");
+            preparedStatement = connection.prepareStatement("SELECT t_clubs.Nom_Club, Count(ti_membres_clubs.FK_Membres) AS CompteDeFK_Membres, t_clubs.PK_Club FROM t_sports INNER JOIN (t_membres INNER JOIN (t_clubs LEFT JOIN ti_membres_clubs ON t_clubs.PK_Club = ti_membres_clubs.FK_Clubs)) ON t_sports.PK_Sport = t_clubs.FK_Sport WHERE (((t_sports.PK_Sport)=?)) GROUP BY t_clubs.Nom_Club, t_sports.Nom_Sport, t_clubs.PK_Club");
             preparedStatement.setInt(1,sport.getPk_sport());
             result = preparedStatement.executeQuery();
 
