@@ -17,7 +17,7 @@ public class ServletUnsubscribe extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         Membre membre = new Membre(Integer.parseInt(request.getParameter("memberId")));
         MemberManager.Instance().UnsubscribeClub(membre,new Club(Integer.parseInt(request.getParameter("clubId"))));
-        response.sendRedirect("profileMember?id="+membre.getPk_membre());
+        response.sendRedirect(request.getParameter("redirectLink"));
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

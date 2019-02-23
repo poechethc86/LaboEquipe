@@ -178,6 +178,33 @@ public class MemberManager extends DBManager {
 
     }
 
+    public List<Membre> DisplayMembersToSubscribe(Club club){
+        ArrayList<Membre> listemembre = new ArrayList<Membre>();
+
+        try {
+            ConnectDB();
+            preparedStatement = connection.prepareStatement("SELECT t_membres.Nom_Membres, t_membres.Prenom_Membres, t_membres.PK_Membres FROM t_membres LEFT JOIN (t_clubs INNER JOIN ti_membres_clubs ON t_clubs.PK_Club = ti_membres_clubs.FK_Clubs) ON t_membres.PK_Membres = ti_membres_clubs.FK_Membres WHERE t_membres.PK_Membres NOT IN (SELECT ti_membres_clubs.FK_Membres FROM ti_membres_clubs WHERE ti_membres_clubs.FK_Clubs = ?)");
+
+            preparedStatement.setInt(1,club.getPk_club());
+            result = preparedStatement.executeQuery();
+
+            while (result.next()){
+                Membre membre = new Membre(result.getString(1),result.getString(2));
+                membre.setPk_membre(result.getInt(3));
+                listemembre.add(membre);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            CloseDB();
+        }
+
+        return listemembre;
+
+
+    }
+
     public List<Membre> DisplayMembers (Sport sport){
 
         ArrayList<Membre> listemembre = new ArrayList<Membre>();
@@ -266,7 +293,6 @@ public class MemberManager extends DBManager {
         }
         return noError;
     }
-
 
     public Membre GetUser (int pk_membre) {
         Membre membre = new Membre(pk_membre);

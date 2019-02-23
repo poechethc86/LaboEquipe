@@ -47,6 +47,7 @@
                         <form action="unsubscribe-membre" method="post">
                             <input type="hidden" name="clubId" value="${id}">
                             <input type="hidden" name="memberId" value="${membre.pk_membre}">
+                            <input type="hidden" name="redirectLink" value="infoclub?id=${id}">
                             <input type="submit" class="btn btn-primary" value="D&eacute;sinscription">
                         </form>
                     </td>
@@ -65,6 +66,37 @@
     </div>
     <div class="col-sm-2"></div>
 </div>
+<div class="row" style="margin-top:150px">
+    <div class="col-sm-12">
+        <h1>Inscription</h1>
+    </div>
+</div>
+<c:if test="${!empty memberstosub}">
+    <form action="subscribe-club" method="post">
+        <div class="row" style="margin-top:50px">
+            <div class="col-sm-5"></div>
+            <div class="col-sm-3">
+                <select name="memberId">
+                    <c:forEach items="${memberstosub}" var="membre">
+                        <option value="${membre.pk_membre}">${membre.nom} ${membre.prenom}</option>
+                    </c:forEach>
+                </select>
+
+                <input type="hidden" name="clubId" value="${id}">
+                <input type="hidden" name="redirectLink" value="infoclub?id=${id}">
+                <input type="submit" class="btn btn-primary" value="Inscription">
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+    </form>
+</c:if>
+<c:if test="${empty memberstosub}">
+    <div class="row" style="margin-top:50px">
+        <div class="col-sm-5"></div>
+        <div class="col-sm-3">Aucune inscription disponible</div>
+        <div class="col-sm-4"></div>
+    </div>
+</c:if>
 <div class="row"style="margin-top:150px"></div>
 
 <%@include file="../templates/footer.jsp"%>
