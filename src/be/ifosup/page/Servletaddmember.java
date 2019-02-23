@@ -21,10 +21,25 @@ public class Servletaddmember extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
 
         if(!request.getParameter("nom").equals("") && !request.getParameter("prenom").equals("") && !request.getParameter("pass").equals("")) {
-            Membre newmembre = new Membre(request.getParameter("nom"), request.getParameter("prenom"));
-            newmembre.setPassword(MD5Manager.Instance().hash(request.getParameter("pass")));
-            newmembre.setUser(newmembre.getPrenom().substring(0, 1).toLowerCase() + newmembre.getNom().toLowerCase());
-            MemberManager.Instance().AddMember(newmembre);
+
+            if(MemberManager.Instance().userexist(request.getParameter("nom"),request.getParameter("prenom"))){
+                JOptionPane pane = new JOptionPane("ce membre existe deja", JOptionPane.ERROR_MESSAGE);
+                JDialog dialog = pane.createDialog(null,"error");
+                dialog.setAlwaysOnTop(true);
+                dialog.setVisible(true);
+                dialog.dispose();
+
+
+            }else{
+
+                Membre newmembre = new Membre(request.getParameter("nom"), request.getParameter("prenom"));
+                newmembre.setPassword(MD5Manager.Instance().hash(request.getParameter("pass")));
+                newmembre.setUser(newmembre.getPrenom().substring(0, 1).toLowerCase() + newmembre.getNom().toLowerCase());
+                MemberManager.Instance().AddMember(newmembre);
+
+
+            }
+
         }else{
             JOptionPane pane = new JOptionPane("Veuillez completer le(s) champ(s)", JOptionPane.ERROR_MESSAGE);
             JDialog dialog = pane.createDialog(null,"error");
@@ -33,6 +48,10 @@ public class Servletaddmember extends HttpServlet {
             dialog.dispose();
 
         }
+
+
+
+
         response.sendRedirect("homepage");
 
     }

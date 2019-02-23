@@ -206,6 +206,28 @@ public class MemberManager extends DBManager {
 
     }
 
+    public boolean userexist(String nom,String prenom) {
+        boolean noError = true;
+        try {
+            ConnectDB();
+
+            preparedStatement = connection.prepareStatement("SELECT t_membres.Nom_Membres, t_membres.Prenom_Membres FROM t_membres WHERE (((t_membres.Nom_Membres)=?) AND ((t_membres.Prenom_Membres)=?));");
+            preparedStatement.setString(1,nom);
+            preparedStatement.setString(2, prenom);
+            result = preparedStatement.executeQuery();
+            if(!result.next()){
+                noError = false;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            noError = false;
+        } finally {
+            CloseDB();
+        }
+
+        return noError;
+    }
     public boolean SubscribeClub (Membre member, Club club){
 
         boolean noError = true;
