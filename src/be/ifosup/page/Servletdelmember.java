@@ -15,8 +15,11 @@ import java.lang.reflect.Member;
 public class Servletdelmember extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+
         request.setCharacterEncoding("UTF-8");
         Membre membre = MemberManager.Instance().GetMember(Integer.parseInt(request.getParameter("memberId")));
+        MemberManager.Instance().RemoveMember(membre);
+
         response.sendRedirect("/homepage");
     }
 
