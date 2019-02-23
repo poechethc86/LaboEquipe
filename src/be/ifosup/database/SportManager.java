@@ -25,7 +25,6 @@ public class SportManager extends DBManager {
         boolean noError = true;
         try {
             ConnectDB();
-            System.out.println(sport.getNomSport());
             preparedStatement = connection.prepareStatement("INSERT INTO `t_sports`(`Nom_Sport`) VALUES (?);");
 
 
