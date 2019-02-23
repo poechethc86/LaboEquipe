@@ -144,7 +144,7 @@ public class SportManager extends DBManager {
         ArrayList<Sport> listsport = new ArrayList<Sport>();
         try {
             ConnectDB();
-            preparedStatement = connection.prepareStatement("SELECT t_sports.Nom_Sport, t_sports.PK_Sport FROM t_sports;");
+            preparedStatement = connection.prepareStatement("SELECT t_sports.Nom_Sport, t_sports.PK_Sport FROM t_sports ORDER BY t_sports.Nom_Sport;");
             result = preparedStatement.executeQuery();
 
             while (result.next()){
