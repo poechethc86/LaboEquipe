@@ -22,6 +22,7 @@ public class ServletMemberProfile extends HttpServlet {
         Membre membre = MemberManager.Instance().GetMember(Integer.parseInt(request.getParameter("id")));
         request.setAttribute("nom",membre.getNom());
         request.setAttribute("prenom",membre.getPrenom());
+        request.setAttribute("username",membre.getUser());
         request.setAttribute("id",request.getParameter("id"));
         request.setAttribute("clubs", ClubManager.Instance().DisplayClubs(membre));
         request.setAttribute("clubstosub",ClubManager.Instance().DisplayClubsToSubscribe(membre));

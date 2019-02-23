@@ -45,12 +45,13 @@ public class MemberManager extends DBManager {
         Membre membre = new Membre(pk_membre);
         try {
             ConnectDB();
-            preparedStatement = connection.prepareStatement("SELECT t_membres.Nom_Membres, t_membres.Prenom_Membres FROM t_membres WHERE `PK_Membres` = ?");
+            preparedStatement = connection.prepareStatement("SELECT t_membres.Nom_Membres, t_membres.Prenom_Membres, t_membres.User_Membres FROM t_membres WHERE `PK_Membres` = ?");
             preparedStatement.setInt(1,pk_membre);
             result = preparedStatement.executeQuery();
             if (result.next()) {
                 membre.setNom(result.getString(1));
                 membre.setPrenom(result.getString(2));
+                membre.setUser(result.getString(3));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -131,12 +132,13 @@ public class MemberManager extends DBManager {
         ArrayList<Membre> listemembre = new ArrayList<Membre>();
         try {
             ConnectDB();
-            preparedStatement = connection.prepareStatement("SELECT t_membres.Nom_Membres, t_membres.Prenom_Membres , t_membres.PK_Membres FROM t_membres;");
+            preparedStatement = connection.prepareStatement("SELECT t_membres.Nom_Membres, t_membres.Prenom_Membres , t_membres.PK_Membres, t_membres.User_Membres FROM t_membres;");
             result = preparedStatement.executeQuery();
 
             while (result.next()){
                 Membre membre = new Membre(result.getString(1),result.getString(2));
                 membre.setPk_membre(result.getInt(3));
+                membre.setUser(result.getString(4));
                 listemembre.add(membre);
                                  }
 

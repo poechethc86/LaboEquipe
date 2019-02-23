@@ -18,8 +18,9 @@ public class Servletdelmember extends HttpServlet {
 
         request.setCharacterEncoding("UTF-8");
         Membre membre = MemberManager.Instance().GetMember(Integer.parseInt(request.getParameter("memberId")));
-        MemberManager.Instance().RemoveMember(membre);
-
+        if (!request.getSession().getAttribute("user").equals(request.getParameter("usernameToDelete"))) {
+            MemberManager.Instance().RemoveMember(membre);
+        }
         response.sendRedirect("homepage");
     }
 

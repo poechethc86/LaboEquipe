@@ -16,7 +16,7 @@
 
 <div class="row"style="margin-top:150px">
     <div class="col-sm-2"></div>
-    <div class="col-sm-8"><h1> ${nom} ${prenom} </h1> </div>
+    <div class="col-sm-8"><h1> ${nom} ${prenom}<br>(${username}) </h1> </div>
     <div class="col-sm-2"></div>
 </div>
 <div class="row" style="margin-top:100px">
@@ -38,6 +38,7 @@
         </form>
         <form action="delete-member" method="post">
             <input type="hidden" name="memberId" value="${id}">
+            <input type="hidden" name="usernameToDelete" value="${username}">
             <input type="submit" class="btn btn-primary" value="suppression membre" >
         </form>
     </div>

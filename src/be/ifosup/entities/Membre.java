@@ -66,6 +66,7 @@ public class Membre {
                 "nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
                 ", pk_membre='" + pk_membre + '\'' +
+                ", user='" + user + '\'' +
                 '}';
     }
 }
